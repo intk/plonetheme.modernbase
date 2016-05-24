@@ -9,7 +9,7 @@
 
 Documentation
 =============
-- Based on the Plone 5 theme `Clean Blog <https://pypi.python.org/pypi/plonetheme.modernbase>`_
+- Based on the Plone 5 theme `Clean Blog <https://pypi.python.org/pypi/plonetheme.clean-blog>`_
 
 Installation
 ============================
