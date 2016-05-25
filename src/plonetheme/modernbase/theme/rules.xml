@@ -41,7 +41,7 @@
         css:if-content=".userrole-authenticated"
         />
 
-      <!--replace css:theme=".navbar-brand .brand-logo" css:content="#portal-logo"/>-->
+      <replace css:theme-children=".brand-logo" css:content="#portal-logo"/>
 
       <!-- login link -->
       <!--<after
@@ -89,6 +89,7 @@
       />
 
       <drop css:content="#slickslideshow"/>
+      <drop css:content=".contentsListing"/>
 
       <!-- Header -->
       <copy attributes="style" css:theme="header.intro-header" css:content="div.leadImageBackground"/>

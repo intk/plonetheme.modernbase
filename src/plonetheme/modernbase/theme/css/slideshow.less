@@ -16,7 +16,9 @@ body.frontend {
 		pointer-events: none;
 	}
 
-	&.template-document_view,
+	&.portaltype-document, 
+	&.portaltype-collection,
+	&.portaltype-folder,
 	&.portaltype-portlet-page {
 		.intro-header:before {
 			display: block;
@@ -36,9 +38,16 @@ body.frontend {
 
 		@media (max-width: 767px) {
 			.intro-header {
-				margin-top: 50px;
+				margin-top: 90px;
 			}
 		}
+
+		@media (max-width: 480px) {
+			.intro-header {
+				margin-top: 70px;
+			}
+		}
+
 		.site-heading {
 			transition: opacity 0.2s ease-in;
 
@@ -146,8 +155,8 @@ body.frontend {
 		    right: 0;
 		    bottom: 0;
 		    left: 0;
-		    background: #000000;
-		    opacity: 0.15;
+		    background: none;
+		    opacity: 0;
 		    z-index: 1;
 		    pointer-events: none;
 		    transition: opacity 0.3s linear;
