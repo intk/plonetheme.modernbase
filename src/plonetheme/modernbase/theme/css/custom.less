@@ -55,7 +55,7 @@ body:not(.frontend) {
 	}
 }
 
-body.frontend {
+body.frontend, body#tinymce {
 	article#content {
 		margin-bottom: 30px;
 	}
@@ -234,9 +234,10 @@ body.frontend {
 
     	.separator-wrapper {
     		margin-top: 50px;
+    		margin-bottom: 35px;
 
 	    	img {
-	    		width: 300px;
+	    		width: 280px;
 	    		display: block;
 	    		margin: 0 auto;
 	    	}
@@ -249,6 +250,46 @@ body.frontend {
     		padding-right: 35px;
     	}
     }
+
+    /* CONTENT CORE */
+    #content-core {
+    	@media (min-width: 768px) {
+    		width: 666px;
+    		margin: 0 auto;
+    	}
+    }
+
+    /* DOCUMENT LAYOUT */
+    h2 {
+    	.introHeadB();
+    	font-size: 34px;
+    	color: #4c4c4c;
+    }
+
+    h3 {
+    	.introHeadB();
+    	font-size: 30px;
+    	color: #4c4c4c;
+    }
+
+    h4 {
+    	.introHeadB();
+    	font-size: 26px;
+    	color: #4c4c4c;
+    }
+
+    p {
+    	.introCondRegular();
+    	font-size: 22px;
+    	color: #5e5e5e;
+    }
+
+    p strong {
+    	.introCondSemiBold();
+    	color: #5e5e5e;
+    }
+
+
 }
 
 body.frontend.section-contact {
