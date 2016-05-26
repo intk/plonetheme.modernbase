@@ -16,51 +16,46 @@ body.frontend {
 		pointer-events: none;
 	}
 
-	&.portaltype-document, 
-	&.portaltype-collection,
-	&.portaltype-folder,
-	&.template-search,
-	&.portaltype-portlet-page {
-		.intro-header:before {
-			display: block;
-			content: "";
-			width: 100%;
-			padding-top: 56.25%;
-		}
+	.intro-header:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: 56.25%;
+	}
 
-		.heading-container {
-			width: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			pointer-events:none;
-			z-index: 100;
-		}
+	.heading-container {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		pointer-events:none;
+		z-index: 100;
+	}
 
-		@media (max-width: 767px) {
-			.intro-header {
-				margin-top: 90px;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.intro-header {
-				margin-top: 70px;
-			}
-		}
-
-		.site-heading {
-			transition: opacity 0.2s ease-in;
-
-			@media (max-width: 480px) {
-				padding: 50px 0 50px;
-			}
-		}
-
-		.portletSlideshow.portlet {
-			border: 0px;
+	@media (max-width: 767px) {
+		.intro-header {
+			margin-top: 90px;
 		}
 	}
+
+	@media (max-width: 480px) {
+		.intro-header {
+			margin-top: 70px;
+		}
+	}
+
+	.site-heading {
+		transition: opacity 0.2s ease-in;
+
+		@media (max-width: 480px) {
+			padding: 50px 0 50px;
+		}
+	}
+
+	.portletSlideshow.portlet {
+		border: 0px;
+	}
+
 
 	&.portaltype-portlet-page {
 		.site-heading {

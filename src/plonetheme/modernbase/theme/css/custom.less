@@ -251,10 +251,22 @@ body.frontend, body#tinymce {
     	}
     }
 
+    &:not(.portaltype-document) {
+    	.separator-wrapper {
+    		display: none;
+    	}
+    }
+
     .page-container {
     	@media (max-width: 768px) {
     		padding-left: 35px;
     		padding-right: 35px;
+    	}
+    }
+
+    &.template-logged_out {
+    	article#content {
+    		padding-top: 50px;
     	}
     }
 
