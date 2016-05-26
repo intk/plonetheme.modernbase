@@ -16,44 +16,58 @@ body.frontend {
 		pointer-events: none;
 	}
 
-	.intro-header:before {
-		display: block;
-		content: "";
-		width: 100%;
-		padding-top: 56.25%;
-	}
-
-	.heading-container {
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		pointer-events:none;
-		z-index: 100;
-	}
-
-	@media (max-width: 767px) {
-		.intro-header {
-			margin-top: 90px;
+	&.portaltype-document,
+	&.portaltype-collection,
+	&.template-search,
+	&.portaltype-portlet-page {
+		.intro-header:before {
+			display: block;
+			content: "";
+			width: 100%;
+			padding-top: 56.25%;
 		}
-	}
 
-	@media (max-width: 480px) {
-		.intro-header {
-			margin-top: 70px;
+		.heading-container {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events:none;
+			z-index: 100;
 		}
-	}
 
-	.site-heading {
-		transition: opacity 0.2s ease-in;
+		@media (max-width: 767px) {
+			.intro-header {
+				margin-top: 90px;
+			}
+		}
 
 		@media (max-width: 480px) {
-			padding: 50px 0 50px;
+			.intro-header {
+				margin-top: 70px;
+			}
+		}
+
+		.site-heading {
+			transition: opacity 0.2s ease-in;
+
+			@media (max-width: 480px) {
+				padding: 50px 0 50px;
+			}
+		}
+
+		.portletSlideshow.portlet {
+			border: 0px;
 		}
 	}
 
-	.portletSlideshow.portlet {
-		border: 0px;
+	&.template-login_form, 
+	&.template-login_failed,
+	&.template-member-search,
+	&.template-logged_out {
+		.page-container {
+			padding-top: 150px;
+		}
 	}
 
 
