@@ -267,11 +267,6 @@ body.frontend, body#tinymce {
     }
 
     /* DOCUMENT LAYOUT */
-    #parent-fieldname-text h1 {
-		color: #df0934;
-		.introBold();
-	}
-
     h2 {
     	.introHeadB();
     	font-size: 34px;
@@ -298,9 +293,18 @@ body.frontend, body#tinymce {
     	margin-top: 45px;
     }
 
-    h5, h6 {
+    h5 {
     	.introHeadB();
     	font-size: 24px;
+    	color: #4c4c4c;
+    	letter-spacing: 0.05em;
+    	font-weight: 400;
+    	margin-top: 45px;
+    }
+
+    h6 {
+    	.introHeadB();
+    	font-size: 22px;
     	color: #4c4c4c;
     	letter-spacing: 0.05em;
     	font-weight: 400;
@@ -347,6 +351,18 @@ body.frontend, body#tinymce {
 
     &.mce-content-body, 
     div#parent-fieldname-text {
+    	h1 {
+			color: #df0934;
+			.introBold();
+		}
+
+		div {
+			.introCondRegular();
+	    	font-size: 22px;
+	    	letter-spacing: 0.05em;
+	    	color: #5e5e5e;
+		}
+
 	    ol li, ul li {
 	    	.introCondRegular();
 	    	letter-spacing: 0.05em;
@@ -380,6 +396,7 @@ body.frontend, body#tinymce {
 		table {
 			margin-top: 45px;
 			width: 900px;
+			max-width: 900px;
 		}
 
 		table tr:nth-child(even) {
