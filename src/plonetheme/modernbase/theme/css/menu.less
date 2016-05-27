@@ -338,12 +338,13 @@ xcarbonads
   -o-transform: translateY(6px);
   transform: translateY(6px);
 }
-.no-touch .cd-nav-trigger:hover .cd-nav-icon::after {
-  top: 0px;
+body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::after {
+  top: 2px;
 }
-.no-touch .cd-nav-trigger:hover .cd-nav-icon::before {
-  top: 0px;
+body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
+  top: -2px;
 }
+
 .cd-nav-trigger svg {
   position: absolute;
   top: 0;
