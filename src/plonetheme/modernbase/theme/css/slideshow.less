@@ -17,8 +17,8 @@ body.frontend {
 	}
 
 	&.portaltype-document,
+	&.portaltype-news-item,
 	&.portaltype-collection,
-	&.template-search,
 	&.portaltype-portlet-page {
 		.intro-header:before {
 			display: block;
@@ -49,10 +49,7 @@ body.frontend {
 		}
 	}
 
-	&.template-login_form, 
-	&.template-login_failed,
-	&.template-member-search,
-	&.template-logged_out {
+	&:not(.portaltype-document):not(.portaltype-news-item):not(.portaltype-collection):not(.portaltype-portlet-page) {
 		.page-container {
 			padding-top: 150px;
 		}
