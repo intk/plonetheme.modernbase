@@ -52,8 +52,12 @@
         />-->
 
       <!-- replace theme navbar-nav with Plone plone-navbar-nav -->
-      <replace
+      <!--<replace
         css:theme-children=".navbar-nav"
+        css:content-children=".plone-navbar-nav" />-->
+
+      <replace
+        css:theme-children=".cd-primary-nav"
         css:content-children=".plone-navbar-nav" />
 
       <!-- Title and description -->
