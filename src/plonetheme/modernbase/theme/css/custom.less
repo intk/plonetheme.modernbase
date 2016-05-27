@@ -21,17 +21,14 @@ body:not(.frontend) {
 }
 
 #portal-logo {
-	position: relative;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 350px;
 	height: auto;
 	background-color: #df0934;
 	cursor: pointer;
-
-	@media (min-width: 768px) {
-		margin-left: -15px;
-	}
+	z-index: 2;
 
 	@media (max-width: 480px) {
 		width: 70px;
@@ -43,7 +40,7 @@ body:not(.frontend) {
 
 	img {
 		width: inherit;
-		height: inherit;
+		height: auto;
 		cursor: inherit;
 	}
 }
