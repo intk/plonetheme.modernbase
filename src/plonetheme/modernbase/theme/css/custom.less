@@ -585,6 +585,47 @@ body.frontend, body#tinymce {
 			border: 0px;
 		}
 	}
+
+	/* Event recurrence */
+	.event.summary {
+		margin-top: 30px;
+		max-width: 100%;
+		clear:both;
+		float: none;
+		width: 100%;
+		list-style-type: none;
+		background: none;
+		box-shadow: none;
+		padding: 0;
+		margin-left: 0;
+		letter-spacing: 0.05em;
+	}
+
+	.event-date-title {
+		display: none;
+	}
+
+	&.portaltype-event, &.portaltype-occurrence {
+
+		abbr {
+			cursor: initial;
+		}
+
+		span.timezone {
+			display: none;
+		}
+
+		.event-date {
+		    font-size: 28px;
+		    .introHeadB();
+		}
+
+		.event.summary {
+			li {
+				padding-bottom: 20px;
+			}
+		}
+	}
 }
 
 /* FOOTER */
@@ -891,6 +932,14 @@ div.occurrence {
 }
 
 /* General */
+
+.vevent span.cal_month {
+    font-size: 12px;
+}
+
+.vevent span.cal_wkday {
+    font-size: 12px;
+}
 
 body:not(.frontend) footer > .container {
 	width: 100%;
