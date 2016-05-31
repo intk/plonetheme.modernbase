@@ -607,6 +607,8 @@ footer, body.mce-content-body {
 footer {
 	padding-bottom: 0px;
 
+
+
 	ul {
 		-webkit-padding-start: 0px;
 		list-style-type: none;
@@ -635,7 +637,7 @@ footer {
 			}
 
 			.footer-wrapper {
-				padding-left: 80px;
+				padding-left: 100px;
 				padding-right: 80px;
 			}
 		}
@@ -741,6 +743,28 @@ footer {
 
 		}
 	}
+
+	@media (min-width: 992px) {
+		.social-media-wrapper {
+			width: 67%;
+		}
+		
+		.line-wrapper {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.address-contact {
+		    padding-right: 0px;
+			padding-left: 0px;
+			margin-left: -120px;
+			width: 320px;
+		}
+
+		.social-media {
+			margin-left: 18%;
+		}
+	}
 }
 
 /* Mailchimp portlet */
@@ -843,6 +867,17 @@ footer {
 		}
 	}
 }
+
+/* Event recurrence */
+div.riform {
+	z-index: 1000;
+}
+
+div.occurrence {
+	clear: both;
+}
+
+/* General */
 
 body:not(.frontend) footer > .container {
 	width: 100%;
