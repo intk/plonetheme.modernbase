@@ -82,12 +82,15 @@
             tal:condition="python:showMore or view.include_empty_footer()"
             tal:define="showMore view/data/show_more">
         <span class="portletBottomLeft"></span>
+        <div class="formControls">
         <span tal:condition="showMore">
         <a tal:attributes="href collection_url">
            <span class="hiddenStructure"><span tal:replace="view/data/header" /> - </span>
-           <input i18n:attributes="value more_url" type="button" class="btn btn-default show-more" value="More&hellip;"/>
+           <input i18n:attributes="value more_url" type="submit" class="btn btn-default show-more" value="More&hellip;"/>
         </a>
+      
         </span>
+        </div>
         <span class="portletBottomRight"></span>
   </footer>
 
