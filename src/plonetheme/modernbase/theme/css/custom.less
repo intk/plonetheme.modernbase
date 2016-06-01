@@ -49,6 +49,8 @@ body:not(.frontend) {
 		outline: 0px;
 		outline-offset: 0px;
 	}
+
+	border: 1px solid #f5f5f5;
 }
 
 .documentLayout() {
@@ -286,7 +288,7 @@ body.frontend, body#tinymce {
     	.portletHeader {
     		border-top: 0px;
     		border-radius: 0px;
-    		background: #f5f5f5;
+    		background: none;
     	}
 
     	.portletContent {
@@ -316,7 +318,7 @@ body.frontend, body#tinymce {
     	.tileImage {
     		padding-right: 0px;
     		width: 100%;
-    		padding-bottom: 10px;
+    		padding-bottom: 0px;
     	}
     }
 
@@ -356,7 +358,7 @@ body.frontend, body#tinymce {
     	}
     }
 
-    &:not(.portaltype-document):not(.portaltype-collection):not(.portaltype-folder) {
+    &:not(.portaltype-document):not(.portaltype-collection):not(.portaltype-folder):not(.portaltype-formfolder) {
     	.separator-wrapper {
     		display: none;
     	}
@@ -476,7 +478,7 @@ body.frontend, body#tinymce {
 	}
 
 	/* Form controls */
-	.formControls input {
+	.formControls input:not(.btn) {
 		padding: 15px;
 		border: 0px;
 		border-radius: 0px;
@@ -497,14 +499,15 @@ body.frontend, body#tinymce {
 		text-shadow: 0px 0px 0px #ffffff;
 	}
 
-	input {
+	input:not(.btn) {
 		.inputField();
 	}
 
 
 	/* Multiple content page */
 	&.portaltype-collection, 
-	&.portaltype-folder {
+	&.portaltype-folder,
+	.portletCollection {
 		.title-container {
 			h1 {
 				font-size: 42px;
@@ -625,6 +628,194 @@ body.frontend, body#tinymce {
 				padding-bottom: 20px;
 			}
 		}
+	}
+
+	/* PORTLET PAGE */
+	&.portaltype-portlet-page {
+		.title-container {
+			display: none;
+		}
+
+		@media (max-width: 768px) {
+			.portletMailChimp {
+				margin-left: -50px;
+				margin-right: -50px;
+			}
+		}
+
+		h1 {
+			font-size: 42px;
+			color: #df0934;
+			.introBold();
+			text-align: center;
+			margin-top: 25px;
+		}
+
+		.separator-wrapper {
+			display: block !important;
+			margin-top: 55px;
+			margin-bottom: 70px;
+
+			img {
+	    		width: 280px;
+	    		display: block;
+	    		margin: 0 auto;
+	    	}
+		}
+
+		.main-container {
+			padding: 15px;
+			margin: 0px;
+			width: 100%;
+		}
+
+		.main-content {
+			width: 100%;
+			margin: 0;
+		}
+
+		#content-core {
+			width: 100%;
+		}
+
+		.portletCollection {
+			.portletHeader {
+				background: none;
+				padding-bottom: 0px;
+
+				a:hover {
+					text-decoration: none;
+				}
+			}
+
+			padding-bottom: 75px;
+			padding-top: 50px;
+
+			.portletFooter {
+				clear: both;
+				padding-bottom: 0px;
+				padding-top: 30px;
+
+				a:hover {
+					text-decoration: none;
+				}
+			}
+
+			.show-more {
+				margin: 0 auto;
+				display: block;
+				padding: 15px;
+				border: 0px;
+				border-radius: 0px;
+				text-transform: uppercase;
+				height: 55px;
+				.introHeadB();
+				color: #ffffff;
+				letter-spacing: 0.05em;
+				width: 170px;
+				font-size: 20px;
+				background-color: #008da9;
+				letter-spacing: 0.15em;
+				text-shadow: 0px 0px 0px #ffffff;
+				font-weight: 400;
+
+				outline: none;
+				outline: 0px;
+				outline-offset: 0px;
+
+				&:active:focus {
+					outline: none;
+					outline: 0px;
+					outline-offset: 0px;
+					cursor: pointer;
+				}
+
+			}
+		}
+
+		.portlet-collection-wat-is-er-te-zien {
+			padding-top: 0px;
+		}
+
+		@media (min-width: 768px) {
+			#row-items {
+				padding-left: 50px !important;
+				padding-right: 50px !important;
+			}
+		}
+
+		.intro-header {
+			margin-bottom: 0px;
+		}
+
+		
+
+		footer {
+			padding-top: 0px;
+			.portletMailChimp {
+				display: none;
+			}
+		}
+
+		article#content {
+			margin-bottom: 0px;
+		}
+
+
+
+
+	}
+
+	/* CONTACT FORM */
+
+	&.portaltype-formfolder{
+		.title-container {
+			h1 {
+				font-size: 42px;
+				text-align: center;
+				margin-top: 25px;
+			}
+
+			.separator-wrapper {
+				margin-top: 55px;
+				margin-bottom: 70px;
+			}
+		}
+
+		.floating-label-form-group {
+			padding-bottom: 0;
+
+			textarea {
+				.inputField();
+				height: auto;
+			}
+
+			textarea, input {
+				border: 1px  solid #cacaca;
+			}
+
+			input {
+				height: 65px
+			}
+
+			label {
+				letter-spacing: 0.05em;
+				font-size: 1.00em;
+			}
+		}	
+
+		.pfg-form .formControls {
+			text-align: right;
+		}
+
+
+	}
+}
+
+body:not(.frontend).portaltype-formfolder {
+	footer .field {
+		width: initial;
+		margin: none;
 	}
 }
 
@@ -872,7 +1063,7 @@ footer {
 		display: none;
 	}
 
-	.formControls input {
+	.formControls input:not(.btn) {
 		padding: 15px;
 		border: 0px;
 		border-radius: 0px;
@@ -893,7 +1084,7 @@ footer {
 		text-shadow: 0px 0px 0px #ffffff;
 	}
 
-	input {
+	input:not(.btn) {
 		.inputField();
 	}
 

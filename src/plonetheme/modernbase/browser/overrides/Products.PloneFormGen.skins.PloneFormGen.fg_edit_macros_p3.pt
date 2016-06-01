@@ -222,19 +222,19 @@
                        i18n:attributes="value label_previous;"
                        />
                 <input tal:condition="python:fieldset_index &lt; n_fieldsets - 1"
-                       class="context btn btn-default"
+                       class="context"
                        type="submit"
                        name="form_next"
                        value="Next"
                        i18n:attributes="value label_next;"
                        />
-                <input class="context btn btn-default"
+                <input class="context"
                        type="submit"
                        name="form_submit"
                        value="Save"
                        tal:attributes="value python:getattr(here,'submitLabel','Submit')"
                        />
-                <input class="standalone btn btn-default"
+                <input class="standalone"
                        type="reset"
                        name="form.button.cancel"
                        value="Cancel"

@@ -56,17 +56,17 @@
                           
 
                           <div>
-                            <metal:block metal:define-macro="document_byline">
-                          <p class="event-date">
-                          <tal:event condition="item_is_event">
-                            <tal:date tal:replace="structure python:view.formatted_date(obj)"/>
-                            <span tal:condition="item/location" i18n:translate="label_event_byline_location">&mdash;
-                              <span tal:content="string:${item/location}" class="location" i18n:name="location">Oslo</span>,
-                            </span>
-                          </tal:event>
-                          
-                          </p>
-                        </metal:block>
+                          <metal:block metal:define-macro="document_byline">
+                            <p class="event-date">
+                            <tal:event condition="item_is_event">
+                              <tal:date tal:replace="structure python:view.formatted_date(obj)"/>
+                              <span tal:condition="item/location" i18n:translate="label_event_byline_location">&mdash;
+                                <span tal:content="string:${item/location}" class="location" i18n:name="location">Oslo</span>,
+                              </span>
+                            </tal:event>
+                            
+                            </p>
+                          </metal:block>
                             
                               <h4 class="item-title">
                                 <a href="#"

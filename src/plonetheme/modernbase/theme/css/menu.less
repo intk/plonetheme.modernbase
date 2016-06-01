@@ -37,12 +37,12 @@ xnugget info
 .cd-nav-trigger {
   position: fixed;
   z-index: 3;
-  right: 5%;
-  top: 20px;
-  height: 54px;
-  width: 54px;
+  right: 0px;
+  top: 0px;
+  height: 90px;
+  width: 90px;
   background-color: #df0934;
-  border-radius: 50%;
+  border-radius: 0;
   /* image replacement */
   overflow: hidden;
   text-indent: 100%;
@@ -50,7 +50,19 @@ xnugget info
   -webkit-transition: -webkit-transform 0.5s;
   -moz-transition: -moz-transform 0.5s;
   transition: transform 0.5s;
+
+  @media (max-width: 480px) {
+    height: 70px;
+    width: 70px;
+    rect {
+      stroke-dasharray: 280 280;
+      stroke-dashoffset: 280;
+      width: 70px;
+      height: 70px;
+    }
+  }
 }
+
 .cd-nav-trigger .cd-nav-icon {
   /* icon created in CSS */
   position: absolute;
@@ -125,7 +137,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   top: 0;
   left: 0;
 }
-.cd-nav-trigger circle {
+.cd-nav-trigger rect {
   /* circle border animation */
   -webkit-transition: stroke-dashoffset 0.4s 0s;
   -moz-transition: stroke-dashoffset 0.4s 0s;
@@ -139,6 +151,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
+
 .navigation-is-open .cd-nav-trigger .cd-nav-icon::after,
 .navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
   /* animate arrow --> from hamburger to arrow */
@@ -164,7 +177,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
 .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::after, .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::before {
   top: 0;
 }
-.navigation-is-open .cd-nav-trigger circle {
+.navigation-is-open .cd-nav-trigger rect {
   stroke-dashoffset: 0;
   -webkit-transition: stroke-dashoffset 0.4s 0.3s;
   -moz-transition: stroke-dashoffset 0.4s 0.3s;
@@ -172,7 +185,7 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
 }
 @media only screen and (min-width: 1170px) {
   .cd-nav-trigger {
-    top: 18px;
+    top: 0px;
   }
 }
 
