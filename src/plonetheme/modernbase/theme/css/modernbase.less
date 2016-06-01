@@ -109,7 +109,8 @@ body.frontend, body#tinymce {
 		margin-bottom: 0;
 		padding-bottom: 0.5em;
 		border-bottom: 0px solid @gray-light;
-		input:not(.search-btn),
+
+		input[type="text"]:not(.search-btn),
 		textarea {
 			z-index: 1;
 			position: relative;
@@ -122,7 +123,16 @@ body.frontend, body#tinymce {
 			box-shadow: none !important;
 			resize: none;
 		}
-		label {
+
+		/*label {
+			opacity: 0;
+			-webkit-transition: top 0.3s ease,opacity 0.3s ease;
+			-moz-transition: top 0.3s ease,opacity 0.3s ease;
+			-ms-transition: top 0.3s ease,opacity 0.3s ease;
+			transition: top 0.3s ease,opacity 0.3s ease;
+		}*/
+
+		&> .field:not(.ArchetypesBooleanWidget):not(.ArchetypesCalendarWidget):not(.ArchetypesMultiSelectionWidget):not(.ArchetypesSelectionWidget) label {
 			display: block;
 			z-index: 0;
 			position: relative;
@@ -138,21 +148,23 @@ body.frontend, body#tinymce {
 			-ms-transition: top 0.3s ease,opacity 0.3s ease;
 			transition: top 0.3s ease,opacity 0.3s ease;
 		}
+
 		&::not(:first-child) {
 			padding-left: 14px;
 			border-left: 1px solid @gray-light;
 		}
+
 	}
 
 	.floating-label-form-group-with-value {
-		label {
+		&> .field:not(.ArchetypesBooleanWidget):not(.ArchetypesCalendarWidget):not(.ArchetypesMultiSelectionWidget):not(.ArchetypesSelectionWidget) label {
 			top: 0;
 			opacity: 1;
 		}
 	}
 
 	.floating-label-form-group-with-focus {
-		label {
+		&> .field:not(.ArchetypesBooleanWidget):not(.ArchetypesCalendarWidget):not(.ArchetypesMultiSelectionWidget):not(.ArchetypesSelectionWidget) label {
 			color: @brand-primary;
 		}
 	}
