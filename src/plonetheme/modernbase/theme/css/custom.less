@@ -1,11 +1,16 @@
 body {
-	background-color: #ffffff !important;
+	background-color: #ffffff;
 	overflow-x: hidden;
 	height: 100%;
 }
 
 html {
+	background-color: #ffffff;
 	height: 100%;
+}
+
+.page-container, footer, #slickslideshow, .intro-header {
+	background-color: #ffffff;
 }
 
 body:not(.frontend) {
@@ -44,7 +49,6 @@ body:not(.frontend) {
 	outline-offset: 0px;*/
 
 	&:active:focus {
-		
 	}
 
 	&:hover {
@@ -202,6 +206,15 @@ body:not(.frontend) {
 }
 
 body.frontend, body#tinymce {
+
+	.intro-header {
+		margin-bottom: 0px;
+	}
+
+	.title-container {
+		padding-top: 55px;
+	}
+
 	article#content {
 		margin-bottom: 30px;
 	}
