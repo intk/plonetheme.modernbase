@@ -24,7 +24,7 @@ abbr {
 }
 
 .logo-nav-wrapper {
-	width: 50%;
+	width: 35%;
     margin: 0 auto;
 }
 
@@ -1665,25 +1665,43 @@ body.frontend.template-default_error_message {
 #cd-nav {
 	.navigation-search-wrapper {
 		position: absolute;
-		top: 20px;
-		left: 20px;
-		width: 30%;
+		top: 27px;
+		left: 50px;
+		width: 25%;
 
 		@media (max-width: 768px) {
 			position: initial;
 			padding-left: 30px;
+			padding-right: 30px;
+			padding-top: 50px;
 			width: auto;
 		}
 
 		@media (max-width: 480px) {
 			position: initial;
 			padding-top: 50px;
-			padding-left: 15px;
+			padding-left: 30px;
+			padding-right: 30px;
 			width: auto;
 		}
 	}
 
+	.LSBox {
+		position: relative;
+	}
+
 	.searchField {
+		padding-right: 45px;
+		padding-left: 20px;
+		border-radius: 20px;
+		height: 35px;
+		font-size: 15px;
+		font-style: italic;
+		color: #404040;
+		border: 1px solid #ffffff;
+	}
+
+	/*.searchField {
 		display: inline-block;
 		width: auto;
 		background-color: transparent;
@@ -1701,34 +1719,46 @@ body.frontend.template-default_error_message {
 		@media (max-width: 480px) {
 			width: auto;
 		}
-	}
+	}*/
 
 	.searchField::-webkit-input-placeholder {
-	   color: #ffffff;
-	   text-transform: uppercase;
-	   letter-spacing: 0.10em;
+	   color: #5e5e5e;
 	}
 
-	.searchField:-moz-placeholder { /* Firefox 18- */
-	   color: #ffffff;  
-	   text-transform: uppercase;
-	   letter-spacing: 0.15em;
+	.searchField:-moz-placeholder { 
+	   color: #5e5e5e;  
 	}
 
-	.searchField::-moz-placeholder {  /* Firefox 19+ */
-	   color: #ffffff;  
-	   text-transform: uppercase;
-	   letter-spacing: 0.15em;
+	.searchField::-moz-placeholder {
+	   color: #5e5e5e;  
 	}
 
 	.searchField:-ms-input-placeholder {  
-	   color: #ffffff;  
-	   text-transform: uppercase;
-	   letter-spacing: 0.15em;
+	   color: #5e5e5e;  
+	}
+
+	.searchField:focus::-webkit-input-placeholder {
+	   color: #404040;
+	}
+
+	.searchField:focus:-moz-placeholder { 
+	   color: #404040;  
+	}
+
+	.searchField:focus::-moz-placeholder {
+	   color: #404040;  
+	}
+
+	.searchField:focus:-ms-input-placeholder {  
+	   color: #404040;  
 	}
 
 	.searchSection {
 		display: none;
+	}
+
+	.searchField:focus + .searchButton {
+		color: #404040;
 	}
 
 	.fa.fa-search {
@@ -1738,11 +1768,19 @@ body.frontend.template-default_error_message {
 	.searchButton {
 		.buttonField();
 		display: inline-block;
+		position: absolute;
+		top:0;
+		right:0;
+		color: #5e5e5e;
 		width: auto;
 		margin: 0;
 		margin-top: -1px;
 		background: transparent;
 		background-color: transparent;
+		height: 35px;
+		padding: 5px;
+		padding-right: 14px;
+		font-size: 19px;
 
 		&:hover {
 			background: transparent;

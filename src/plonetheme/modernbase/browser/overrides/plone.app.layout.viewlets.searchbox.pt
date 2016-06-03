@@ -13,24 +13,22 @@
         <label class="hiddenStructure"
                for="searchGadget"
                i18n:translate="text_search">Search Site</label>
-
-        <button class="searchButton"
-               type="submit"
-               ><i class="fa fa-search" aria-hidden="true"></i></button>
-               
+       
         <input name="SearchableText"
                type="text"
                size="18"
                value=""
                id="searchGadget"
-               title="Search"
-               placeholder="Search"
-               i18n:attributes="title label_search;
-                                placeholder label_search"
+               title="Search Site"
+               placeholder="Search Site"
+               i18n:attributes="title title_search_site;
+                                placeholder title_search_site"
                tal:attributes="value request/form/SearchableText|nothing;"
                class="searchField" />
 
-        
+        <button class="searchButton"
+               type="submit"
+               ><i class="fa fa-search" aria-hidden="true"></i></button>
 
         <div class="searchSection">
             <input id="searchbox_currentfolder_only"
