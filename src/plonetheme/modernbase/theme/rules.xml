@@ -80,6 +80,11 @@
       <drop css:content=".documentDescription"/>
       <drop css:content=".documentFirstHeading"/>
 
+      <replace
+        css:theme-children="#nav-search-wrapper"
+        css:content-children="#portal-searchbox"
+        />
+     
       <!-- viewlet-above-content -->
       <replace
         css:theme-children="#above-content"
