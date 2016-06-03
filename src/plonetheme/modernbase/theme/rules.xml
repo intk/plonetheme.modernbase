@@ -84,7 +84,13 @@
         css:theme-children="#nav-search-wrapper"
         css:content-children="#portal-searchbox"
         />
-     
+
+      <!--<replace
+        css:theme-children="#social-content"
+        css:content="#viewlet-social-like"
+        method="raw"
+        />-->
+
       <!-- viewlet-above-content -->
       <replace
         css:theme-children="#above-content"
@@ -95,6 +101,8 @@
         css:theme-children="#slickslideshow"
         css:content-children="#slickslideshow"
       />
+
+      <drop css:content="#viewlet-social-like"/>
 
       <drop css:content="#slickslideshow"/>
       <drop css:content=".contentsListing"/>
