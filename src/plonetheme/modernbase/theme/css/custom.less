@@ -199,14 +199,14 @@ body:not(.frontend) {
 #portal-logo {
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	width: 350px;
 	height: auto;
 	background-color: #df0934;
 	cursor: pointer;
 	z-index: 2;
 
-	@media (max-width: 480px) {
+	@media (max-width: 768px) {
 		width: 70px;
 
 		img {
@@ -1670,10 +1670,10 @@ body.frontend.template-default_error_message {
 	.navigation-search-wrapper {
 		position: absolute;
 		top: 27px;
-		left: 50px;
+		right: 50px;
 		width: 25%;
 
-		@media (max-width: 768px) {
+		@media (max-width: 992px) {
 			position: initial;
 			padding-left: 30px;
 			padding-right: 30px;
@@ -1687,6 +1687,11 @@ body.frontend.template-default_error_message {
 			padding-left: 30px;
 			padding-right: 30px;
 			width: auto;
+		}
+
+		@media (min-width: 768px) and (max-width: 992px) {
+			padding-left: 45px;
+			padding-right: 45px;
 		}
 	}
 
