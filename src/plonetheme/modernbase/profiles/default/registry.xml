@@ -24,8 +24,8 @@
       </value>
       <value key="enabled">True</value>
       <value key="compile">True</value>
-      <value key="jscompilation">++theme++plonetheme.modernbase/js/bundle-compiled.js</value>
+      <value key="jscompilation">++theme++plonetheme.modernbase/js/modernbase-bundle-compiled.js</value>
       <value key="csscompilation">++theme++plonetheme.modernbase/css/modernbase-bundle-compiled.css</value>
-      <value key="last_compilation">2015-05-28 00:00:00</value>
+      <value key="last_compilation"></value>
     </records>
 </registry>
