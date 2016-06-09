@@ -151,6 +151,8 @@ body:not(.frontend) {
     	list-style-type: disc;
     }
 
+
+
     hr {
 	    display: block;
 	    height: 1px;
@@ -560,6 +562,9 @@ body.frontend, body#tinymce {
     &.mce-content-body, 
     div#parent-fieldname-text {
     	.documentLayout();
+    	ul, ol {
+    		margin-top: 30px; /* same margin top as a paragraph */
+    	}
 	}
 
 	span.explain {
@@ -1065,6 +1070,11 @@ footer {
 				color: #ffffff;
 			}
 
+			&:active,
+			&:focus {
+				color: #ffffff;
+			}
+
 			margin-top: 0px;
 			margin-bottom: 20px;
 		}
@@ -1189,6 +1199,11 @@ footer {
 	&:hover {
 		color: #ffffff;
 		text-decoration: none;
+	}
+
+	&:active,
+	&:focus {
+		color: #ffffff;
 	}
 }
 
@@ -1645,6 +1660,14 @@ body.frontend.template-default_error_message {
 		}
 	}
 
+	div.portlet-static-footer a {
+		&:hover,
+		&:active,
+		&:focus {
+			color: #ffffff;
+		}
+	}
+
 	p.event-date {
 		font-size: 20px;
 		color: #228ea7;
@@ -1831,6 +1854,11 @@ body.frontend.template-default_error_message {
 			text-transform: uppercase;
 
 			&:hover {
+				color: #ffffff;
+			}
+			
+			&:active,
+			&:focus {
 				color: #ffffff;
 			}
 		}

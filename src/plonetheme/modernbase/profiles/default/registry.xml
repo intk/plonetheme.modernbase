@@ -15,7 +15,6 @@
        </value>
     </records>
 
-
     <!-- bundle definition -->
     <records prefix="plone.bundles/modernbase-bundle"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
