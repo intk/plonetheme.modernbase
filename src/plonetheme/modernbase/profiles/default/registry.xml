@@ -1,12 +1,5 @@
 <?xml version="1.0"?>
 <registry>
-    <records prefix="plone.resources/modernbase-main"
-              interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-       <value key="css">
-          <element>++theme++plonetheme.modernbase/css/custom.less</element>
-       </value>
-    </records>
-
     <records prefix="plone.resources/modernbase"
               interface='Products.CMFPlone.interfaces.IResourceRegistry'>
        <value key="js">++theme++plonetheme.modernbase/js/bundle.js</value>
@@ -18,13 +11,15 @@
     <!-- bundle definition -->
     <records prefix="plone.bundles/modernbase-bundle"
               interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+      <value key="merge_with"></value>
+      
       <value key="resources">
         <element>modernbase</element>
       </value>
-      <value key="enabled">True</value>
-      <value key="compile">True</value>
       <value key="jscompilation">++theme++plonetheme.modernbase/js/modernbase-bundle-compiled.js</value>
       <value key="csscompilation">++theme++plonetheme.modernbase/css/modernbase-bundle-compiled.css</value>
-      <value key="last_compilation"></value>
+      <value key="last_compilation">2015-02-16 00:00:00</value>
+      <value key="enabled">True</value>
+      <value key="compile">True</value>
     </records>
 </registry>
