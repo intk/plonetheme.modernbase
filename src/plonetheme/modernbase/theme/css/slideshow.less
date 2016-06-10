@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------- */
 
 body.frontend {
-
+	
 	nav#category {
 		display: none;
 	}
@@ -16,11 +16,8 @@ body.frontend {
 		pointer-events: none;
 	}
 
-	&.portaltype-document,
-	&.portaltype-news-item,
-	&.portaltype-collection,
-	&.portaltype-portlet-page,
-	&.portaltype-event {
+	&.not-empty-slideshow,
+	&.portaltype-portlet-page {
 		.intro-header:before {
 			display: block;
 			content: "";
@@ -50,7 +47,7 @@ body.frontend {
 		}
 	}
 
-	&:not(.portaltype-document):not(.portaltype-news-item):not(.portaltype-collection):not(.portaltype-portlet-page):not(.portaltype-event) {
+	&:not(.not-empty-slideshow):not(.portaltype-portlet-page) {
 		.page-container {
 			padding-top: 150px;
 
