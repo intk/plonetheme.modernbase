@@ -7,7 +7,7 @@
 
 
     <theme href="backend.html" css:if-not-content="body.frontend"/>
-    <!--<theme href="contact.html" css:if-content="body.frontend.portaltype-formfolder"/>-->
+    <theme href="index_kasteel.html" css:if-content="body.site-KasteelDeHaar"/>
     <theme href="index.html" css:if-content="body.frontend"/>
 
     <notheme css:if-not-content="#visual-portal-wrapper" />

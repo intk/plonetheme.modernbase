@@ -214,7 +214,6 @@ body:not(.frontend) {
 
 	@media (max-width: 768px) {
 		width: 70px;
-
 		img {
 			content: url('++resource++plonetheme.modernbase/logo-glyph.svg') !important;
 		}
@@ -455,7 +454,7 @@ body.frontend, body#tinymce {
     }
 
     &:not(.portaltype-document):not(.portaltype-collection):not(.portaltype-folder):not(.portaltype-formfolder) {
-    	.separator-wrapper {
+    	.separator-wrapper:not(.kasteel) {
     		display: none;
     	}
     }
