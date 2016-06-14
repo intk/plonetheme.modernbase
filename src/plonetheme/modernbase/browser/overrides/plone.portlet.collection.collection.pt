@@ -13,9 +13,16 @@
         </a>
         <h2 tal:content="collection_item/Description"></h2>
         <span class="portletTopRight"></span>
-        <div class="separator-wrapper">
-            <img src="++resource++plonetheme.modernbase/seperator.svg" class="title-separator"/>
-        </div>
+        <tal:render_separator tal:condition="python: 'markiezenhof' in context.absolute_url()" tal:on-error="nothing">
+          <div class="separator-wrapper">
+              <img src="++resource++plonetheme.modernbase/seperator.svg" class="title-separator"/>
+          </div>
+        </tal:render_separator>
+        <tal:render_separator_hr tal:condition="python: 'markiezenhof' not in context.absolute_url()" tal:on-error="nothing">
+          <div class="separator-wrapper">
+              <hr class="separator"/>
+          </div>
+        </tal:render_separator_hr>
     </header>
 
 
