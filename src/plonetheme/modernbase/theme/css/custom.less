@@ -1215,7 +1215,8 @@ footer {
 	}
 }
 
-.portlet-static-online-tickets {
+.portlet-static-online-tickets,
+.portlet-weekday {
 
 	padding-left: 65px;
 	padding-right: 65px;
@@ -1287,6 +1288,11 @@ footer {
 	}
 
 
+}
+.portlet-weekday {
+	.portletHeader {
+		display: none;
+	}
 }
 
 /* Mailchimp portlet */
@@ -1888,6 +1894,35 @@ body.frontend.template-default_error_message {
 			h5 {
 				text-align: right;
 			}
+		}
+	}
+}
+
+body.frontend.mobile {
+	input[type='text'],
+	input[type='number'],
+	textarea {
+	  font-size: 16px;
+	}
+}
+
+body.template-default_error_message {
+	.intro-header {
+		display: none;
+	}
+
+	.page-container {
+		padding-top: 150px;
+
+		@media (max-width: 768px) {
+			padding-top: 80px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		#content-core {
+		    width: 700px !important;
+		    margin: 0 auto !important;
 		}
 	}
 }
