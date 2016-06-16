@@ -210,18 +210,22 @@ body:not(.frontend) {
 	cursor: pointer;
 	z-index: 2;
 
-	@media (max-width: 768px) {
-		width: 70px;
-		img {
-			content: url('++resource++plonetheme.modernbase/logo-glyph.svg') !important;
-		}
-	}
+
 
 	img {
 		width: inherit;
 		height: auto;
 		cursor: inherit;
 		z-index: inherit;
+	}
+
+	@media (max-width: 768px) {
+		width: 70px;
+		height: 70px;
+		img {
+			content: url('++resource++plonetheme.modernbase/logo-glyph.svg') !important;
+			height: 70px;
+		}
 	}
 }
 
@@ -627,6 +631,7 @@ body.frontend, body#tinymce {
 
 		h4.item-title {
 			margin-top: 0px;
+			clear:both;
 		}
 
 		p.event-date {
@@ -1462,6 +1467,7 @@ body.frontend.template-search {
 
 	h4.item-title {
 		margin-top: 20px;
+
 	}
 
 	p.event-date {
@@ -1927,7 +1933,23 @@ body.template-default_error_message {
 	}
 }
 
+body.frontend {
+	@media (max-width:768px) {
+		.video-play-btn,
+		.video-slide .overlay-image {
+			display: none;
+		}
+	}
 
+	@media (max-width: 468px) {
+		.slick-prev,
+		.slick-next,
+		.wrap-prev,
+		.wrap-next {
+			display: none !important;
+		}
+	}
+}
 
 
 
