@@ -9,15 +9,20 @@ if (window.jQuery) {
   });
 }
 
-
-
 $(document).ready(function($){
   var isLateralNavAnimating = false;
   
   //open/close lateral navigation
-  $('.cd-nav-trigger').on('click', function(event){
+  $('.cd-nav-trigger').on('click', function(event) {
     event.preventDefault();
     //stop if nav animation is running 
+
+    if (slickSlideshow != undefined) {
+      if (slickSlideshow.playing) {
+        slickSlideshow.pauseCurrentSlide();
+      }
+    }
+
     if( !isLateralNavAnimating ) {
       if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true; 
       
