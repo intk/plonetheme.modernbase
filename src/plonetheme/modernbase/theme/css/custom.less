@@ -224,6 +224,10 @@ body:not(.frontend) {
 			content: url('++resource++plonetheme.modernbase/logo-glyph.svg') !important;
 			height: 70px;
 		}
+
+		img:before {
+			content: url('++resource++plonetheme.modernbase/logo-glyph.svg') !important;
+		}
 	}
 }
 
@@ -453,7 +457,7 @@ body.frontend, body#tinymce {
     	}
     }
 
-    &:not(.portaltype-document):not(.portaltype-collection):not(.portaltype-folder):not(.portaltype-formfolder) {
+    &:not(.portaltype-document):not(.portaltype-collection):not(.portaltype-folder):not(.portaltype-formfolder):not(.portaltype-event) {
     	.separator-wrapper:not(.kasteel) {
     		display: none;
     	}
@@ -1759,6 +1763,8 @@ body.frontend.template-default_error_message {
 		font-style: italic;
 		color: #404040;
 		border: 1px solid #ffffff;
+		padding-top: 5px;
+		padding-bottom: 5px;
 	}
 
 	/*.searchField {
