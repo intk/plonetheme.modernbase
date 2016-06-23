@@ -33,6 +33,70 @@ $(document).ready(function($){
       });
     }
   });
+
+  if ($("#street-view").length > 0) {
+
+    options = {};
+    options['lat'] = $("#street-view").data('lat');
+    options['lng'] = $("#street-view").data('lng');
+    options['heading'] = $("#street-view").data('heading');
+    options['pitch'] = $("#street-view").data('pitch');
+    if ($("#street-view").data('addresscontrol') == "False"){
+      options['addressControl'] = false 
+    }
+    else{
+      options['addressControl'] = true 
+    }
+    if ($("#street-view").data('zoomcontrol') == "False"){
+      options['zoomControl'] = false 
+    }
+    else{
+      options['zoomControl'] = true 
+    }
+    
+    if ($("#street-view").data('linkscontrol') == "False"){
+      options['linksControl'] = false 
+    }
+    else{
+      options['linksControl'] = true 
+    }
+    
+    if ($("#street-view").data('pancontrol') == "False"){
+      options['panControl'] = false 
+    }
+    else{
+      options['panControl'] = true 
+    }
+    
+    if ($("#street-view").data('enableclosebutton') == "False") {
+      options['enableCloseButton'] = false 
+    }
+    else{
+      options['enableCloseButton'] = true 
+    }
+    
+    if ($("#street-view").data('fullscreencontrol') == "False") {
+      options['fullscreenControl'] = false 
+    }
+    else {
+      options['fullscreenControl'] = true 
+    }
+    
+
+    var panorama = new google.maps.StreetViewPanorama(
+    document.getElementById('street-view'),
+    {
+      position: {lat: options['lat'], lng: options['lng']},
+      pov: {heading: options['heading'], pitch: options['pitch']},
+      zoom: options['zoom'],
+      addressControl: options['addressControl'],
+      zoomControl: options['zoomControl'],
+      linksControl: options['linksControl'],
+      panControl: options['panControl'],
+      enableCloseButton: options['enableCloseButton'],
+      fullscreenControl: options['fullscreenControl'],
+    });
+  }
 });
 
 
