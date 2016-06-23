@@ -35,7 +35,6 @@ $(document).ready(function($){
   });
 
   if ($("#street-view").length > 0) {
-
     options = {};
     options['lat'] = $("#street-view").data('lat');
     options['lng'] = $("#street-view").data('lng');
@@ -82,7 +81,6 @@ $(document).ready(function($){
       options['fullscreenControl'] = true 
     }
     
-
     var panorama = new google.maps.StreetViewPanorama(
     document.getElementById('street-view'),
     {
