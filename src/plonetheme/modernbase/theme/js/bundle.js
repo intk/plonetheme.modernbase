@@ -9,6 +9,36 @@ if (window.jQuery) {
   });
 }
 
+var panorama = null;
+var interval_time = 55;
+var heading_increase = 0.01;
+var pov_pitch = 0; /* original pitch */
+var acceleration = 0.004;
+var heading_high_limit = 300; /* Start point */
+var heading_low_limit = 197.98; 
+var heading_middle = heading_high_limit - ((heading_high_limit - heading_low_limit) / 2);
+var pov_interval = null;
+
+function movePOV() {
+  if (panorama != undefined && panorama != null) { 
+    var current_heading = panorama.getPov().heading;
+    var new_heading = current_heading - heading_increase;
+    panorama.setPov({heading: new_heading, pitch: 0});
+
+    if (current_heading <= heading_middle) {
+      /* Deacelarates - remove acceleration */
+      heading_increase = heading_increase - acceleration;
+    } else {
+      /* Acelerates  - add acceleration */
+      heading_increase = heading_increase + acceleration;
+    }
+
+    if (current_heading <= heading_low_limit) {
+      clearInterval(pov_interval);
+    }
+  }
+}
+
 $(document).ready(function($){
   var isLateralNavAnimating = false;
   
@@ -34,12 +64,16 @@ $(document).ready(function($){
     }
   });
 
+  /* Street view functionality */
+
   if ($("#street-view").length > 0) {
     options = {};
     options['lat'] = $("#street-view").data('lat');
     options['lng'] = $("#street-view").data('lng');
     options['heading'] = $("#street-view").data('heading');
     options['pitch'] = $("#street-view").data('pitch');
+    options['heading_lower'] = $("#street-view").data('headinglower');
+
     if ($("#street-view").data('addresscontrol') == "False"){
       options['addressControl'] = false 
     }
@@ -81,7 +115,7 @@ $(document).ready(function($){
       options['fullscreenControl'] = true 
     }
     
-    var panorama = new google.maps.StreetViewPanorama(
+    panorama = new google.maps.StreetViewPanorama(
     document.getElementById('street-view'),
     {
       position: {lat: options['lat'], lng: options['lng']},
@@ -94,10 +128,19 @@ $(document).ready(function($){
       enableCloseButton: options['enableCloseButton'],
       fullscreenControl: options['fullscreenControl'],
     });
+
+    if (options['heading_lower'] != undefined && options['heading_lower'] != '') {
+      pov_pitch = options['pitch'];
+      heading_low_limit = options['heading_lower'];
+      heading_high_limit = options['heading'];
+      heading_middle = heading_high_limit - ((heading_high_limit - heading_low_limit) / 2);
+    }
+
+    jQuery("#street-view").on('click touchstart', function() {
+      clearInterval(pov_interval);
+    });
   }
 });
-
-
 
 require([
   'jquery',

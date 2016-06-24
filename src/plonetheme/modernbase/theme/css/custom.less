@@ -735,7 +735,8 @@ body.frontend, body#tinymce {
 	/* PORTLET PAGE */
 	&.portaltype-portlet-page {
 
-		#column-collective-portletpage-toprow-portlet-slideshow {
+		#column-collective-portletpage-toprow-portlet-slideshow,
+		#column-collective-portletpage-toprow-portlet-ontdek {
 			display: none;
 		}
 
@@ -1972,6 +1973,22 @@ body.frontend {
 	position: relative;
 }
 
+body.frontend {
+
+	.slideshow-btn-wrapper {
+		position: absolute;
+	    bottom: 30px;
+	    left: 50%;
+	    margin-left: -60px;
+	    z-index: 2;
+	}
+	#slideshow-btn {
+		.buttonField();
+		width: auto;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+}
 
 
 
