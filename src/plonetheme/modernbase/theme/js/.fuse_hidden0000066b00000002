@@ -142,22 +142,21 @@ $(document).ready(function($){
   }
 
   $(".play-button").on('click', function()  {
-    var audio_div = $(this).parents('.slick-slide').find('audio')[0];
     if ($(this).hasClass('playing')) {
       $(this).removeClass('playing');
       $(this).addClass('paused');
       $(this).removeClass('hi-icon-volume-up');
       $(this).addClass('hi-icon-volume-off');
-      audio_div.player.pause();
+      //player.pause();
     } else if ($(this).hasClass('paused')) {
       $(this).removeClass('paused');
       $(this).addClass('playing');
       $(this).removeClass('hi-icon-volume-off');
       $(this).addClass('hi-icon-volume-up');
-      audio_div.player.play();
+      //player.play();
     } else {
       $(this).addClass('playing');
-      audio_div.player.play();
+      //player.play();
       $(this).removeClass('hi-icon-volume-pff');
       $(this).addClass('hi-icon-volume-up');
     }
