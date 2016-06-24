@@ -347,5 +347,35 @@ body.userrole-authenticated .video-play-btn {
     display: none;
 }
 
+body.frontend {
+	@media (max-width:768px) {
+		.video-play-btn,
+		.video-slide .overlay-image {
+			display: none;
+		}
+	}
+
+	@media (max-width: 468px) {
+		#slickslideshow {
+			.slick-prev,
+			.slick-next,
+			.wrap-prev,
+			.wrap-next {
+				width: 40px;
+				height: 40px;
+				margin-top: -20px;
+			}
+
+			
+			.slick-next {
+				background: url("++theme++plonetheme.modernbase/img/arrow-right.svg") no-repeat 10px !important;
+			}
+
+			.slick-prev {
+				background: url("++theme++plonetheme.modernbase/img/arrow-left.svg") no-repeat 10px !important;
+			}
+		}
+	}
+}
 
 

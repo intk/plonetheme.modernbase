@@ -1944,19 +1944,9 @@ body.template-default_error_message {
 }
 
 body.frontend {
-	@media (max-width:768px) {
-		.video-play-btn,
-		.video-slide .overlay-image {
-			display: none;
-		}
-	}
-
-	@media (max-width: 468px) {
-		.slick-prev,
-		.slick-next,
-		.wrap-prev,
-		.wrap-next {
-			display: none !important;
+	@media (max-width: 480px) {
+		.mejs-container {
+			max-width: 90% !important;
 		}
 	}
 }
