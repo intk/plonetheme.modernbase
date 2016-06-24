@@ -2776,10 +2776,14 @@ body.frontend {
 
 	.slideshow-btn-wrapper {
 		position: absolute;
-	    bottom: 30px;
+	    bottom: 120px;
 	    left: 50%;
 	    margin-left: -60px;
 	    z-index: 2;
+
+	    @media (max-width: 480px) {
+	    	bottom: 30px;
+	    }
 	}
 	#slideshow-btn {
 		.buttonField();
@@ -2796,7 +2800,16 @@ body.frontend {
    		position: absolute;
    		bottom: 0px;
    		right: 0px;
+
+   		@media (max-width: 480px) {
+   			left: 50%;
+   			right: auto;
+   			margin-left: -70px;
+   			top: 10px;
+   		}
    	} 
+
+
 }
 
 
