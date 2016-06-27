@@ -9,6 +9,7 @@ if (window.jQuery) {
   });
 }
 
+var panoramas = [];
 var panorama = null;
 var interval_time = 55;
 var heading_increase = 0.01;
@@ -19,25 +20,19 @@ var heading_low_limit = 197.98;
 var heading_middle = heading_high_limit - ((heading_high_limit - heading_low_limit) / 2);
 var pov_interval = null;
 
-function movePOV() {
-  if (panorama != undefined && panorama != null) { 
-    var current_heading = panorama.getPov().heading;
-    var new_heading = current_heading - heading_increase;
-    panorama.setPov({heading: new_heading, pitch: 0});
-
-    if (current_heading <= heading_middle) {
-      /* Deacelarates - remove acceleration */
-      heading_increase = heading_increase - acceleration;
-    } else {
-      /* Acelerates  - add acceleration */
-      heading_increase = heading_increase + acceleration;
+function getPanorama(uid) {
+  for (var i = 0; i < panoramas.length; i++) {
+    var pano = panoramas[i];
+    var curr_uid = pano.uid;
+    if (curr_uid == uid) {
+      return pano;
     }
-
-    if (current_heading <= heading_low_limit) {
-      clearInterval(pov_interval);
-    }
-  }
+  };
+  
+  return false;
 }
+
+
 
 $(document).ready(function($){
   var isLateralNavAnimating = false;
@@ -65,79 +60,87 @@ $(document).ready(function($){
   });
 
   /* Street view functionality */
+  if ($(".street-view").length > 0) {
+    $(".street-view").each(function(idx, el) {
+      var options = {};
+      options['lat'] = $(this).data('lat');
+      options['lng'] = $(this).data('lng');
+      options['heading'] = $(this).data('heading');
+      options['pitch'] = $(this).data('pitch');
+      options['heading_lower'] = $(this).data('headinglower');
+      options['uid'] = $(this).data('uid');
+      if ($(this).data('addresscontrol') == "False"){
+        options['addressControl'] = false 
+      } else {
+        options['addressControl'] = true 
+      }
 
-  if ($("#street-view").length > 0) {
-    options = {};
-    options['lat'] = $("#street-view").data('lat');
-    options['lng'] = $("#street-view").data('lng');
-    options['heading'] = $("#street-view").data('heading');
-    options['pitch'] = $("#street-view").data('pitch');
-    options['heading_lower'] = $("#street-view").data('headinglower');
+      if ($(this).data('zoomcontrol') == "False"){
+        options['zoomControl'] = false 
+      } else {
+        options['zoomControl'] = true 
+      }
+      
+      if ($(this).data('linkscontrol') == "False"){
+        options['linksControl'] = false 
+      } else{
+        options['linksControl'] = true 
+      }
+      
+      if ($(this).data('pancontrol') == "False"){
+        options['panControl'] = false 
+      } else {
+        options['panControl'] = true 
+      }
+      
+      if ($(this).data('enableclosebutton') == "False") {
+        options['enableCloseButton'] = false 
+      } else {
+        options['enableCloseButton'] = true 
+      }
+      
+      if ($(this).data('fullscreencontrol') == "False") {
+        options['fullscreenControl'] = false 
+      } else {
+        options['fullscreenControl'] = true 
+      }
+      
+      var panorama = new google.maps.StreetViewPanorama(
+      el,
+      {
+        position: {lat: options['lat'], lng: options['lng']},
+        pov: {heading: options['heading'], pitch: options['pitch']},
+        zoom: options['zoom'],
+        addressControl: options['addressControl'],
+        zoomControl: options['zoomControl'],
+        linksControl: options['linksControl'],
+        panControl: options['panControl'],
+        enableCloseButton: options['enableCloseButton'],
+        fullscreenControl: options['fullscreenControl'],
+      });
 
-    if ($("#street-view").data('addresscontrol') == "False"){
-      options['addressControl'] = false 
-    }
-    else{
-      options['addressControl'] = true 
-    }
-    if ($("#street-view").data('zoomcontrol') == "False"){
-      options['zoomControl'] = false 
-    }
-    else{
-      options['zoomControl'] = true 
-    }
-    
-    if ($("#street-view").data('linkscontrol') == "False"){
-      options['linksControl'] = false 
-    }
-    else{
-      options['linksControl'] = true 
-    }
-    
-    if ($("#street-view").data('pancontrol') == "False"){
-      options['panControl'] = false 
-    }
-    else{
-      options['panControl'] = true 
-    }
-    
-    if ($("#street-view").data('enableclosebutton') == "False") {
-      options['enableCloseButton'] = false 
-    }
-    else{
-      options['enableCloseButton'] = true 
-    }
-    
-    if ($("#street-view").data('fullscreencontrol') == "False") {
-      options['fullscreenControl'] = false 
-    }
-    else {
-      options['fullscreenControl'] = true 
-    }
-    
-    panorama = new google.maps.StreetViewPanorama(
-    document.getElementById('street-view'),
-    {
-      position: {lat: options['lat'], lng: options['lng']},
-      pov: {heading: options['heading'], pitch: options['pitch']},
-      zoom: options['zoom'],
-      addressControl: options['addressControl'],
-      zoomControl: options['zoomControl'],
-      linksControl: options['linksControl'],
-      panControl: options['panControl'],
-      enableCloseButton: options['enableCloseButton'],
-      fullscreenControl: options['fullscreenControl'],
-    });
+      if (options['heading_lower'] != undefined && options['heading_lower'] != '') {
+        pov_pitch = options['pitch'];
+        if (options['heading_lower'] > options['heading']) {
+          heading_low_limit = options['heading'];
+          heading_high_limit = options['heading_lower'];
+        } else {
+          heading_low_limit = options['heading_lower'];
+          heading_high_limit = options['heading'];
+        }
+        heading_middle = heading_high_limit - ((heading_high_limit - heading_low_limit) / 2);
+        options['heading_middle'] = heading_middle;
+      }
 
-    if (options['heading_lower'] != undefined && options['heading_lower'] != '') {
-      pov_pitch = options['pitch'];
-      heading_low_limit = options['heading_lower'];
-      heading_high_limit = options['heading'];
-      heading_middle = heading_high_limit - ((heading_high_limit - heading_low_limit) / 2);
-    }
-
-    jQuery("#street-view").on('click touchstart', function() {
-      clearInterval(pov_interval);
+      options['heading_increase'] = heading_increase;
+      var new_panorama = {
+        panorama: panorama,
+        uid: options['uid'],
+        options: options,
+        pov_interval: null,
+        pov_init: false
+      }
+      panoramas.push(new_panorama);
     });
   }
 
