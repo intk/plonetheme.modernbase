@@ -97,6 +97,8 @@
         css:content-children="#viewlet-above-content-title"
         />
 
+      <drop css:content="#viewlet-above-content-title"/>
+
       <replace
         css:theme-children="#slickslideshow"
         css:content-children="#slickslideshow"
