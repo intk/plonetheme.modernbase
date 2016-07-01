@@ -1763,11 +1763,12 @@ body.frontend, body#tinymce {
 	}*/
 
 	.portlet-rrssb {
-		padding-top: 15px;
-		width: 200px;
+		width: 80%;
 		display: block;
 		margin: 0 auto;
-
+		.social-media-title {
+			display: none;
+		}
 		@media (min-width: 992px) {
 			position: relative;
 			margin-right: -15px;
@@ -1776,77 +1777,13 @@ body.frontend, body#tinymce {
 		@media (max-width: 480px) {
 			width: 100%;
 		}
-		
-		.rrssb-buttons {
-			width: 150px;
-			margin: 0 auto;
-		}
-
-		.rrssb-buttons {
-			height: 50px;
-		}
-
-		.rrssb-buttons li a {
-			background-color: transparent !important;
-
-			.rrssb-icon svg path {
-				fill: #929292 !important;
-			}
-
-			&:hover {
-				background-color: transparent !important;
-			}
-		}
-
-		.rrssb-buttons li.rrssb-facebook a:hover .rrssb-icon svg path {
-			fill: #306199 !important;
-		}
-
-		.rrssb-buttons li.rrssb-twitter a:hover .rrssb-icon svg path {
-			fill: #26c4f1 !important;
-		}
-
-		.rrssb-buttons li.rrssb-email a:hover .rrssb-icon svg path {
-			fill: #0a88ff !important;
-		}
-
-		.rrssb-buttons li.rrssb-googleplus a:hover .rrssb-icon svg path {
-			fill: #e93f2e !important;
-		}
-
-		.rrssb-buttons.small-format li a .rrssb-icon svg path {
-			height: 50%;
-		}
-
-		.rrssb-buttons.small-format li {
-			height: 100%;
-		}
-
-		.rrssb-buttons li a:active {
-			box-shadow: none !important;
-		}
 	}
 
 	/* Social media buttons */
 	.sharing-buttons-wrapper {
-
-		padding-top: 10px;
-	    padding-left: 10px;
-	    padding-bottom: 10px;
-	    padding-right: 10px;
-	    border: 2px solid #ececec;
-	    border-radius: 6px;
-
-	    .social-media-title {
-	    	@media (max-width: 991px) {
-	    		padding-top: 15px;
-	    	}
-	    }
-
-
 		@media (min-width: 992px) {
 			position: absolute;
-			padding-top: 40px;
+			padding-top: 30px;
 			padding-bottom: 20px;
 			padding-right: 15px;
 			padding-left: 15px;
@@ -1868,18 +1805,16 @@ body.frontend, body#tinymce {
 
 			.rrssb-buttons li {
 				width: 100% !important;
-				padding-left: 1px;
-				padding-right: 1px;
 				display: block !important;
 				float: none !important;
 				height: auto !important;
-				line-height: 9px !important;
+				line-height: 10px !important;
 			}
 
 			ul.rrssb-buttons {
 				padding-top: 20px;
 				height: auto !important;
-				width: 45% !important;
+				width: 50% !important;
 				margin: 0 auto;
 			}
 
@@ -1887,26 +1822,6 @@ body.frontend, body#tinymce {
 				li .rrssb-icon svg path {
 					fill: #929292 !important;
 				}
-				li {
-					padding-right: 3px;
-					padding-left: 4px;
-				}
-			}
-
-			.rrssb-buttons.tiny-format li.rrssb-facebook a:hover .rrssb-icon svg path {
-				fill: #306199 !important;
-			}
-
-			.rrssb-buttons.tiny-format li.rrssb-twitter a:hover .rrssb-icon svg path {
-				fill: #26c4f1 !important;
-			}
-
-			.rrssb-buttons.tiny-format li.rrssb-email a:hover .rrssb-icon svg path {
-				fill: #0a88ff !important;
-			}
-
-			.rrssb-buttons li.rrssb-googleplus a:hover .rrssb-icon svg path {
-				fill: #e93f2e !important;
 			}
 
 			.rrssb-buttons li a:active {
@@ -1918,11 +1833,14 @@ body.frontend, body#tinymce {
 		.social-media-title {
 			display: block;
 			h5 {
-				letter-spacing: 0.1em;
 				margin-top: 0px !important;
 				text-transform: uppercase;
 				text-align: center;
 				font-size: 16px;
+			}
+
+			@media (max-width: 992px) {
+				display: none;
 			}
 		}
 	}

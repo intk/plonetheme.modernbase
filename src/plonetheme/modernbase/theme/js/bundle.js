@@ -1,7 +1,7 @@
 /* This is a bundle that uses RequireJS to pull in dependencies.
    These dependencies are defined in the registry.xml file */
 
-
++function(t,e,i){"use strict";var r={calc:!1};e.fn.rrssb=function(t){var r=e.extend({description:i,emailAddress:i,emailBody:i,emailSubject:i,image:i,title:i,url:i},t);r.emailSubject=r.emailSubject||r.title,r.emailBody=r.emailBody||(r.description?r.description:"")+(r.url?"\n\n"+r.url:"");for(var s in r)r.hasOwnProperty(s)&&r[s]!==i&&(r[s]=a(r[s]));r.url!==i&&(e(this).find(".rrssb-facebook a").attr("href","https://www.facebook.com/sharer/sharer.php?u="+r.url),e(this).find(".rrssb-tumblr a").attr("href","http://tumblr.com/share/link?url="+r.url+(r.title!==i?"&name="+r.title:"")+(r.description!==i?"&description="+r.description:"")),e(this).find(".rrssb-linkedin a").attr("href","http://www.linkedin.com/shareArticle?mini=true&url="+r.url+(r.title!==i?"&title="+r.title:"")+(r.description!==i?"&summary="+r.description:"")),e(this).find(".rrssb-twitter a").attr("href","https://twitter.com/intent/tweet?text="+(r.description!==i?r.description:"")+"%20"+r.url),e(this).find(".rrssb-hackernews a").attr("href","https://news.ycombinator.com/submitlink?u="+r.url+(r.title!==i?"&text="+r.title:"")),e(this).find(".rrssb-reddit a").attr("href","http://www.reddit.com/submit?url="+r.url+(r.description!==i?"&text="+r.description:"")+(r.title!==i?"&title="+r.title:"")),e(this).find(".rrssb-googleplus a").attr("href","https://plus.google.com/share?url="+(r.description!==i?r.description:"")+"%20"+r.url),e(this).find(".rrssb-pinterest a").attr("href","http://pinterest.com/pin/create/button/?url="+r.url+(r.image!==i?"&amp;media="+r.image:"")+(r.description!==i?"&description="+r.description:"")),e(this).find(".rrssb-pocket a").attr("href","https://getpocket.com/save?url="+r.url),e(this).find(".rrssb-github a").attr("href",r.url),e(this).find(".rrssb-print a").attr("href","javascript:window.print()"),e(this).find(".rrssb-whatsapp a").attr("href","whatsapp://send?text="+(r.description!==i?r.description+"%20":r.title!==i?r.title+"%20":"")+r.url)),(r.emailAddress!==i||r.emailSubject)&&e(this).find(".rrssb-email a").attr("href","mailto:"+(r.emailAddress?r.emailAddress:"")+"?"+(r.emailSubject!==i?"subject="+r.emailSubject:"")+(r.emailBody!==i?"&body="+r.emailBody:""))};var s=function(){var t=e("<div>"),i=["calc","-webkit-calc","-moz-calc"];e("body").append(t);for(var s=0;s<i.length;s++)if(t.css("width",i[s]+"(1px)"),1===t.width()){r.calc=i[s];break}t.remove()},a=function(t){if(t!==i&&null!==t){if(null===t.match(/%[0-9a-f]{2}/i))return encodeURIComponent(t);t=decodeURIComponent(t),a(t)}},n=function(){e(".rrssb-buttons").each(function(t){var i=e(this),r=e("li:visible",i),s=r.length,a=100/s;r.css("width",a+"%").attr("data-initwidth",a)})},l=function(){e(".rrssb-buttons").each(function(t){var i=e(this),r=i.width(),s=e("li",i).not(".small").eq(0).width(),a=e("li.small",i).length;if(s>170&&1>a){i.addClass("large-format");var n=s/12+"px";i.css("font-size",n)}else i.removeClass("large-format"),i.css("font-size","");25*a>r?i.removeClass("small-format").addClass("tiny-format"):i.removeClass("tiny-format")})},o=function(){e(".rrssb-buttons").each(function(t){var i=e(this),r=e("li",i),s=r.filter(".small"),a=0,n=0,l=s.eq(0),o=parseFloat(l.attr("data-size"))+55,c=s.length;if(c===r.length){var h=42*c,u=i.width();u>h+o&&(i.removeClass("small-format"),s.eq(0).removeClass("small"),d())}else{r.not(".small").each(function(t){var i=e(this),r=parseFloat(i.attr("data-size"))+55,s=parseFloat(i.width());a+=s,n+=r});var m=a-n;m>o&&(l.removeClass("small"),d())}})},c=function(t){e(".rrssb-buttons").each(function(t){var i=e(this),r=e("li",i);e(r.get().reverse()).each(function(t,i){var s=e(this);if(s.hasClass("small")===!1){var a=parseFloat(s.attr("data-size"))+55,n=parseFloat(s.width());if(a>n){var l=r.not(".small").last();e(l).addClass("small"),d()}}--i||o()})}),t===!0&&u(d)},d=function(){e(".rrssb-buttons").each(function(t){var i,s,a,l,o,c=e(this),d=e("li",c),h=d.filter(".small"),u=h.length;u>0&&u!==d.length?(c.removeClass("small-format"),h.css("width","42px"),a=42*u,i=d.not(".small").length,s=100/i,o=a/i,r.calc===!1?(l=(c.innerWidth()-1)/i-o,l=Math.floor(1e3*l)/1e3,l+="px"):l=r.calc+"("+s+"% - "+o+"px)",d.not(".small").css("width",l)):u===d.length?(c.addClass("small-format"),n()):(c.removeClass("small-format"),n())}),l()},h=function(){e(".rrssb-buttons").each(function(t){e(this).addClass("rrssb-"+(t+1))}),s(),n(),e(".rrssb-buttons li .rrssb-text").each(function(t){var i=e(this),r=i.width();i.closest("li").attr("data-size",r)}),c(!0)},u=function(t){e(".rrssb-buttons li.small").removeClass("small"),c(),t()},m=function(e,r,s,a){var n=t.screenLeft!==i?t.screenLeft:screen.left,l=t.screenTop!==i?t.screenTop:screen.top,o=t.innerWidth?t.innerWidth:document.documentElement.clientWidth?document.documentElement.clientWidth:screen.width,c=t.innerHeight?t.innerHeight:document.documentElement.clientHeight?document.documentElement.clientHeight:screen.height,d=o/2-s/2+n,h=c/3-a/3+l,u=t.open(e,r,"scrollbars=yes, width="+s+", height="+a+", top="+h+", left="+d);u&&u.focus&&u.focus()},f=function(){var t={};return function(e,i,r){r||(r="Don't call this twice without a uniqueId"),t[r]&&clearTimeout(t[r]),t[r]=setTimeout(e,i)}}();e(document).ready(function(){try{e(document).on("click",".rrssb-buttons a.popup",{},function(t){var i=e(this);m(i.attr("href"),i.find(".rrssb-text").html(),580,470),t.preventDefault()})}catch(i){}e(t).resize(function(){u(d),f(function(){u(d)},200,"finished resizing")}),h()}),t.rrssbInit=h}(window,jQuery);
 /* do not include jquery multiple times */
 if (window.jQuery) {
   define('jquery', [], function() {
@@ -34,11 +34,11 @@ function getPanorama(uid) {
 
 
 
-$(document).ready(function($){
+jQuery(document).ready(function($){
   var isLateralNavAnimating = false;
   
   //open/close lateral navigation
-  $('.cd-nav-trigger').on('click', function(event) {
+  jQuery('.cd-nav-trigger').on('click', function(event) {
     event.preventDefault();
     //stop if nav animation is running 
 
@@ -49,10 +49,10 @@ $(document).ready(function($){
     }
 
     if( !isLateralNavAnimating ) {
-      if($(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true; 
+      if(jQuery(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true; 
       
-      $('body').toggleClass('navigation-is-open');
-      $('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+      jQuery('body').toggleClass('navigation-is-open');
+      jQuery('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
         //animation is over
         isLateralNavAnimating = false;
       });
@@ -60,46 +60,46 @@ $(document).ready(function($){
   });
 
   /* Street view functionality */
-  if ($(".street-view").length > 0) {
-    $(".street-view").each(function(idx, el) {
+  if (jQuery(".street-view").length > 0) {
+    jQuery(".street-view").each(function(idx, el) {
       var options = {};
-      options['lat'] = $(this).data('lat');
-      options['lng'] = $(this).data('lng');
-      options['heading'] = $(this).data('heading');
-      options['pitch'] = $(this).data('pitch');
-      options['heading_lower'] = $(this).data('headinglower');
-      options['uid'] = $(this).data('uid');
-      if ($(this).data('addresscontrol') == "False"){
+      options['lat'] = jQuery(this).data('lat');
+      options['lng'] = jQuery(this).data('lng');
+      options['heading'] = jQuery(this).data('heading');
+      options['pitch'] = jQuery(this).data('pitch');
+      options['heading_lower'] = jQuery(this).data('headinglower');
+      options['uid'] = jQuery(this).data('uid');
+      if (jQuery(this).data('addresscontrol') == "False"){
         options['addressControl'] = false 
       } else {
         options['addressControl'] = true 
       }
 
-      if ($(this).data('zoomcontrol') == "False"){
+      if (jQuery(this).data('zoomcontrol') == "False"){
         options['zoomControl'] = false 
       } else {
         options['zoomControl'] = true 
       }
       
-      if ($(this).data('linkscontrol') == "False"){
+      if (jQuery(this).data('linkscontrol') == "False"){
         options['linksControl'] = false 
       } else{
         options['linksControl'] = true 
       }
       
-      if ($(this).data('pancontrol') == "False"){
+      if (jQuery(this).data('pancontrol') == "False"){
         options['panControl'] = false 
       } else {
         options['panControl'] = true 
       }
       
-      if ($(this).data('enableclosebutton') == "False") {
+      if (jQuery(this).data('enableclosebutton') == "False") {
         options['enableCloseButton'] = false 
       } else {
         options['enableCloseButton'] = true 
       }
       
-      if ($(this).data('fullscreencontrol') == "False") {
+      if (jQuery(this).data('fullscreencontrol') == "False") {
         options['fullscreenControl'] = false 
       } else {
         options['fullscreenControl'] = true 
@@ -144,25 +144,25 @@ $(document).ready(function($){
     });
   }
 
-  $(".play-button").on('click', function()  {
-    var audio_div = $(this).parents('.slick-slide').find('audio')[0];
-    if ($(this).hasClass('playing')) {
-      $(this).removeClass('playing');
-      $(this).addClass('paused');
-      $(this).removeClass('hi-icon-volume-up');
-      $(this).addClass('hi-icon-volume-off');
+  jQuery(".play-button").on('click', function()  {
+    var audio_div = jQuery(this).parents('.slick-slide').find('audio')[0];
+    if (jQuery(this).hasClass('playing')) {
+      jQuery(this).removeClass('playing');
+      jQuery(this).addClass('paused');
+      jQuery(this).removeClass('hi-icon-volume-up');
+      jQuery(this).addClass('hi-icon-volume-off');
       audio_div.player.pause();
-    } else if ($(this).hasClass('paused')) {
-      $(this).removeClass('paused');
-      $(this).addClass('playing');
-      $(this).removeClass('hi-icon-volume-off');
-      $(this).addClass('hi-icon-volume-up');
+    } else if (jQuery(this).hasClass('paused')) {
+      jQuery(this).removeClass('paused');
+      jQuery(this).addClass('playing');
+      jQuery(this).removeClass('hi-icon-volume-off');
+      jQuery(this).addClass('hi-icon-volume-up');
       audio_div.player.play();
     } else {
-      $(this).addClass('playing');
+      jQuery(this).addClass('playing');
       audio_div.player.play();
-      $(this).removeClass('hi-icon-volume-pff');
-      $(this).addClass('hi-icon-volume-up');
+      jQuery(this).removeClass('hi-icon-volume-pff');
+      jQuery(this).addClass('hi-icon-volume-up');
     }
   });
 });
@@ -174,8 +174,8 @@ require([
 
   // initialize only if we are in top frame
   if (window.parent === window) {
-    $(document).ready(function() {
-      $('body').addClass('modernbase-main');
+    jQuery(document).ready(function() {
+      jQuery('body').addClass('modernbase-main');
     });
   }
 });

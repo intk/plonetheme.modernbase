@@ -17,4 +17,20 @@
       directory="static"
       />
 
+  <browser:page
+        name="online_experience"
+        for="*"
+        template="templates/online_experience.pt"
+        class=".views.OnlineExperienceView"
+        permission="zope2.View"
+        />
+
+  <browser:menuItem
+        for="*"
+        menu="plone_displayviews"
+        title="Online experience view"
+        action="@@online_experience"
+        description="Shows the online experience view"
+        />
+
 </configure>
