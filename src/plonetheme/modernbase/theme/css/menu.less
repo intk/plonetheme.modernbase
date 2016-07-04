@@ -374,6 +374,15 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   /* Force Hardware Acceleration in WebKit */
+  -webkit-transition: -webkit-transform 0.7s;
+  -moz-transition: -moz-transform 0.7s;
+  transition: transform 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  -moz-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+  transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
+}
+
+body:not(.template-online_experience) {
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -381,12 +390,6 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.7s;
-  -moz-transition: -moz-transform 0.7s;
-  transition: transform 0.7s;
-  -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
-  -moz-transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
-  transition-timing-function: cubic-bezier(0.91, 0.01, 0.6, 0.99);
 }
 
 .navigation-is-open .website-wrapper {
