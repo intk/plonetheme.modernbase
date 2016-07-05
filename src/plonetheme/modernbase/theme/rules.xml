@@ -80,7 +80,8 @@
       
       <drop css:content=".documentDescription"/>
       <drop css:content=".documentFirstHeading"/>
-
+      <drop css:theme=".nav-home-wrapper" css:if-content="body.site-Markiezenhof"/>
+      
       <replace
         css:theme-children="#nav-search-wrapper"
         css:content-children="#portal-searchbox"
