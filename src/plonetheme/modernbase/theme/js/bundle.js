@@ -50,7 +50,7 @@ var isMobile = {
     },
     Surface: function() {
         return navigator.userAgent.match(/MSIE/i);
-    }
+    },
     any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.Surface());
     }
