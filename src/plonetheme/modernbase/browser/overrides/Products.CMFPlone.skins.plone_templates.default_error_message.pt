@@ -95,7 +95,7 @@
                                             leadmedia similar/leadMedia;
 
                                             url python:result_url + '/view' if result_type in use_view_action else result_url;"
-                                            class="similar-item row">
+                                            class="similar-item row" tal:on-error="nothing">
 
                                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                     <tal:leadmedia tal:condition="leadmedia"

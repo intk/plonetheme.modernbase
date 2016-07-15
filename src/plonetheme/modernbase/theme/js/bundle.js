@@ -32,7 +32,29 @@ function getPanorama(uid) {
   return false;
 }
 
-
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    Surface: function() {
+        return navigator.userAgent.match(/MSIE/i);
+    }
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.Surface());
+    }
+};
 
 jQuery(document).ready(function($){
   var isLateralNavAnimating = false;
@@ -58,6 +80,12 @@ jQuery(document).ready(function($){
       });
     }
   });
+
+  if (isMobile.any()) {
+    jQuery("body").addClass("mobile");
+  } else {
+    jQuery("body").addClass("no-touch");
+  }
 
   /* Street view functionality */
   if (jQuery(".street-view").length > 0) {

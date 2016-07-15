@@ -41,16 +41,18 @@ else:
 
 
 def getImageObject(item):
-    if item.portal_type == "Image":
-        return item.getURL()+"/@@images/image/preview"
-    if item.hasMedia and item.leadMedia != None:
-        uuid = item.leadMedia
-        catalog = getToolByName(context, 'portal_catalog')
-        brains = catalog(UID=uuid)
-        if brains:
-            media_object = brains[0]
-            if media_object:
-                return media_object.getURL()+"/@@images/image/preview"
+    if item:
+        if item.portal_type == "Image":
+            return item.getURL()+"/@@images/image/preview"
+        if item.hasMedia and item.leadMedia != None:
+            uuid = item.leadMedia
+            catalog = getToolByName(context, 'portal_catalog')
+            brains = catalog(UID=uuid)
+            if brains:
+                media_object = brains[0]
+                if media_object:
+                    return media_object.getURL()+"/@@images/image/preview"
+
 
 """def formatted_date(item):
     provider = getMultiAdapter(
