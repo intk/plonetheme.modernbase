@@ -48,11 +48,8 @@ var isMobile = {
     Windows: function() {
         return navigator.userAgent.match(/IEMobile/i);
     },
-    Surface: function() {
-        return navigator.userAgent.match(/MSIE/i);
-    },
     any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows() || isMobile.Surface());
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
 
