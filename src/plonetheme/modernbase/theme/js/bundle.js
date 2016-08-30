@@ -54,18 +54,30 @@ var isMobile = {
 };
 
 jQuery(document).ready(function($){
+  
+  if (isMobile.any()) {
+    jQuery("body").addClass("mobile");
+  } else {
+    jQuery("body").addClass("no-touch");
+  }
+  
   var isLateralNavAnimating = false;
   
   //open/close lateral navigation
-  jQuery('.cd-nav-trigger').on('click', function(event) {
+  jQuery('.cd-nav-trigger, .cd-nav-trigger-menu').on('click', function(event) {
     event.preventDefault();
     //stop if nav animation is running 
+
+    /*if (jQuery('.site-KasteelDeHaar').length > 0) {
+      jQuery('.cd-nav-trigger').hide();
+    }*/
 
     if (slickSlideshow != undefined) {
       if (slickSlideshow.playing) {
         slickSlideshow.pauseCurrentSlide();
       }
     }
+  
 
     if( !isLateralNavAnimating ) {
       if(jQuery(this).parents('.csstransitions').length > 0 ) isLateralNavAnimating = true; 
@@ -74,15 +86,15 @@ jQuery(document).ready(function($){
       jQuery('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
         //animation is over
         isLateralNavAnimating = false;
+        /*console.log("transation end");
+        if (jQuery('.site-KasteelDeHaar').length > 0) {
+          jQuery('.cd-nav-trigger').show();
+        }*/
       });
     }
   });
 
-  if (isMobile.any()) {
-    jQuery("body").addClass("mobile");
-  } else {
-    jQuery("body").addClass("no-touch");
-  }
+  
 
   /* Street view functionality */
   if (jQuery(".street-view").length > 0) {
