@@ -44,7 +44,7 @@ def getImageObject(item):
     if item:
         if item.portal_type == "Image":
             return item.getURL()+"/@@images/image/preview"
-        if item.hasMedia and item.leadMedia != None:
+        if getattr(item, 'hasMedia', None) and getattr(item, 'leadMedia', None) != None:
             uuid = item.leadMedia
             catalog = getToolByName(context, 'portal_catalog')
             brains = catalog(UID=uuid)
