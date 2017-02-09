@@ -102,13 +102,14 @@
       <drop css:content="#viewlet-above-content-title"/>
 
       <replace
-        css:theme-children="#slickslideshow"
-        css:content-children="#slickslideshow"
+        css:theme-children="#slickcarousel"
+        css:content-children="#slickcarousel"
       />
 
       <drop css:content="#viewlet-social-like"/>
 
       <drop css:content="#slickslideshow"/>
+      <drop css:content="#slickcarousel"/>
       <drop css:content=".contentsListing"/>
 
       <!-- Header -->

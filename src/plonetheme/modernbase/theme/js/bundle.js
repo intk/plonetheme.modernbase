@@ -72,9 +72,9 @@ jQuery(document).ready(function($){
       jQuery('.cd-nav-trigger').hide();
     }*/
 
-    if (slickSlideshow != undefined) {
-      if (slickSlideshow.playing) {
-        slickSlideshow.pauseCurrentSlide();
+    if (slickCarousel != undefined) {
+      if (slickCarousel.playing) {
+        slickCarousel.pauseCurrentSlide();
       }
     }
   

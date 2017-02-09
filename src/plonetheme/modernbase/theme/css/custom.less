@@ -2910,20 +2910,19 @@ body.frontend {
 }
 
 body.frontend {
-
 	.slideshow-btn-wrapper {
 		position: absolute;
 	    bottom: 120px;
 	    left: 50%;
-	    margin-left: -115px;
+	    margin-left: -108px;
 	    z-index: 2;
 
 	    @media (max-width: 480px) {
-	    	bottom: 30px;
+	    	bottom: 150px;
 	    }
 	}
 	#slideshow-btn, 
-	#slickslideshow .slick-cloned .btn {
+	#slickcarousel .slick-cloned .btn {
 		.buttonField();
 		width: auto;
 		padding-left: 25px;
@@ -2935,7 +2934,7 @@ body.frontend {
         display: none;
     }
 
-   	#slickslideshow .hi-icon-wrap {
+   	#slickcarousel .hi-icon-wrap {
    		position: absolute;
    		bottom: 0px;
    		right: 0px;
@@ -2945,7 +2944,8 @@ body.frontend {
    			left: 50%;
    			right: auto;
    			margin-left: -70px;
-   			top: 10px;
+   			top: 50%;
+   			margin-top: -90px;
    		}
    	} 
 }
@@ -3265,5 +3265,45 @@ body.site-Markiezenhof {
 		}
 	}
 }
+
+/* Sharing buttons fix */
+@media (min-width: 992px) {
+	body.frontend .belowcontent-portlets .portlet-rrssb {
+		display: none !important;
+	}
+}
+
+@media (max-width: 992px) {
+	body.frontend .abovecontent-portlets .portlet-rrssb {
+		display: none !important;
+	}
+}
+
+body.frontend.site-Markiezenhof,
+body.frontend {
+	@media (max-width: 767px) {
+		.title-container {
+			padding-top: 15px;
+		}
+	}
+}
+
+.event-date.past {
+	text-decoration: line-through !important;
+}
+
+body.template-search,
+body.body.template-login_form,
+body.template-logged_out {
+	#slickcarousel {
+		display: none !important;
+	}
+}
+
+body.template-search .page-container {
+	padding-top: 150px !important;
+}
+
+
 
 
