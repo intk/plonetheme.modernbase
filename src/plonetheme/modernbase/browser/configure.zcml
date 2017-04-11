@@ -25,6 +25,13 @@
         permission="zope2.View"
         />
 
+  <browser:page
+        name="context_tools"
+        for="*"
+        class=".views.ContextToolsView"
+        permission="zope2.View"
+        />
+
   <browser:menuItem
         for="*"
         menu="plone_displayviews"

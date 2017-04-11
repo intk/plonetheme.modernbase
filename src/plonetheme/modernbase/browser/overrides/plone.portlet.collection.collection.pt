@@ -54,15 +54,16 @@
         </div>
         <div>
         <metal:block metal:define-macro="document_byline">
-          <p class="event-date">
-          <tal:event condition="item_is_event">
+          <tal:event condition="item_is_event" tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(obj);
+							   is_permanent python: context.restrictedTraverse('@@context_tools').isEventPermanent(context);" tal:on-error="nothing">
+            <p class="event-date" tal:attributes="class python: 'event-date %s %s' % (('past' if is_past else ''), ('permanent' if is_permanent else ''))" tal:on-error="nothing">
             <tal:date tal:replace="structure python:view.formatted_date(item_obj)"/>
             <span tal:condition="obj/location" i18n:translate="label_event_byline_location">&mdash;
               <span tal:content="string:${item/location}" class="location" i18n:name="location">Oslo</span>,
             </span>
+            </p>
           </tal:event>
           
-          </p>
         </metal:block>
             <h4 class="item-title">
               <a href="#"
