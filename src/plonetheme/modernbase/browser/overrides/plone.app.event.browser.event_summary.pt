@@ -27,8 +27,10 @@
     </tal:cond>
 
     <tal:cond condition="python:'date' not in excludes"
-    tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context)">
-      <li class="event-date" tal:attributes="class python: 'event-date past' if is_past else 'event-date'">
+    tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(context);
+                is_permanent python: context.restrictedTraverse('@@context_tools').isEventPermanent(context);">
+                
+      <li class="event-date" tal:attributes="class python: 'event-date %s %s' % (('past' if is_past else ''), ('permanent' if is_permanent else ''))">
         <strong i18n:translate="event_when" class="event-date-title">When</strong>
         <span tal:define="start_tzname data/timezone;
                       start_utcdelta python:data.start.tzinfo.utcoffset(data.start);

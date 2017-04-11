@@ -1,6 +1,6 @@
 from Acquisition import aq_inner
 from Products.Five import BrowserView
-from datetime import date
+from datetime import date, datetime, timedelta
 from DateTime import DateTime
 import time
 
@@ -19,6 +19,32 @@ class ContextToolsView(BrowserView):
                 else:
                     start = DateTime(event.start)
                     return start.year() < t.year() or (start.year() == t.year() and start.month() < t.month()) or(start.year() == t.year() and start.month() == t.month() and start.day() < t.day())
+            except:
+                return False
+        return True
+
+    def isEventPermanent(self, event):
+        NUM_YEARS = 2
+        YEAR = 365
+        YEAR_EXTRA = 365.25
+        YEAR_DIFF = YEAR * NUM_YEARS
+        YEARS_DIFF_EXTRA = YEAR_EXTRA * NUM_YEARS
+
+        if event.portal_type != 'Event':
+            return False
+        else:
+            try:
+                t = DateTime(time.time())
+                if event.end != None and event.start != None:
+                    end = event.end
+                    start = event.start
+                    today = datetime.today().date()
+
+                    diff = end.date() - start.date()
+                    if (diff >= timedelta(days=YEAR_DIFF) or diff >= timedelta(days=YEARS_DIFF_EXTRA)) and start.date() <= today:
+                        return True
+
+                    return False
             except:
                 return False
         return True
