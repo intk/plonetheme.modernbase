@@ -1,9 +1,7 @@
 <section class="portlet portletCollection"
     i18n:domain="plone"
-    tal:define="collection_url view/collection_url;
-                collection_item view/collection;
-                plone_view context/@@plone;
-                toLocalizedTime nocall:plone_view/toLocalizedTime;
+    tal:define="collection_url python: view.collection_url;
+                collection_item python: view.collection();
                 viewActions python:context.portal_registry.get('plone.types_use_view_action_in_listings', []);"
     tal:attributes="class string:portlet portletCollection ${view/css_class}">
     <header class="portletHeader">
@@ -11,7 +9,7 @@
         <a tal:attributes="href collection_url" tal:omit-tag="not:view/data/show_more">
             <h1 tal:content="view/data/header"></h1>
         </a>
-        <h2 tal:content="collection_item/Description"></h2>
+        <h2 tal:content="python:collection_item.Description()"></h2>
         <span class="portletTopRight"></span>
         <tal:render_separator tal:condition="python: 'markiezenhof' in context.absolute_url()" tal:on-error="nothing">
           <div class="separator-wrapper">
@@ -24,27 +22,24 @@
           </div>
         </tal:render_separator_hr>
     </header>
-
-
   <div class="container-fluid" id="row-items">
-    <tal:events tal:repeat="obj view/results">
+    <tal:events tal:repeat="obj python: view.results()">
 
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"
-        tal:define="plone_view context/@@plone;
+        tal:define="plone_view python: context.restrictedTraverse('@@plone');
                     oddrow repeat/obj/odd;
                     useView python:obj.portal_type in viewActions;
                     itemUrl python:useView and obj.getURL() + '/view' or obj.getURL();
                     item_wf_state obj/review_state;
-                    has_media nocall:obj/leadMedia;
+                    has_media python:getattr(obj, 'leadMedia', None);
                     item_wf_state_class python:'state-' + plone_view.normalizeString(item_wf_state);
                     item_type obj/portal_type;
                     item_type_class python:'contenttype-' + plone_view.normalizeString(item_type);
-                    item_obj python:obj.getObject();
-                    item_is_event python:view.is_event(obj);
+                    item_is_event python: item_type in ['Event'];
                     number repeat/obj/number;"
         >
         <div class="thumb-wrapper">         
-          <a class="thumb-image" tal:condition="python: ((has_media != None and has_media != '' and 'Missing' not in str([has_media])) or item_type == 'Image')" href="" tal:attributes="href python: itemUrl"
+          <a class="thumb-image" tal:condition="python: ((has_media != None and has_media != '') or item_type == 'Image')" href="" tal:attributes="href python: itemUrl"
             tal:define="item_img python:view.getImageObject(obj)">
             <img tal:define="images_src python:item_img;
                                "
@@ -54,19 +49,13 @@
         </div>
         <div>
         <metal:block metal:define-macro="document_byline">
-          
           <tal:event condition="item_is_event"
           tal:define="is_past python: context.restrictedTraverse('@@context_tools').isEventPast(obj);
                       is_permanent python: context.restrictedTraverse('@@context_tools').isEventPermanent(obj)">
           <p class="event-date" tal:attributes="class python: 'event-date %s %s' % (('past' if is_past else ''), ('permanent' if is_permanent else ''))">
-            <tal:date tal:replace="structure python:view.formatted_date(item_obj)"/>
-            <span tal:condition="obj/location" i18n:translate="label_event_byline_location">&mdash;
-              <span tal:content="string:${item/location}" class="location" i18n:name="location">Oslo</span>,
-            </span>
+            <tal:date tal:replace="structure python:view.formatted_date(obj.getObject())"/>
           </p>
           </tal:event>
-          
-          
         </metal:block>
             <h4 class="item-title">
               <a href="#"
@@ -78,7 +67,6 @@
           </h4>
           <p tal:content="obj/Description" class="item-description"></p>
         </div>
-
     </div>
     <tal:clearfix condition="python: number % 3 == 0" tal:define="number repeat/obj/number">
         <div class="clearfix visible-lg visible-md"></div>
@@ -94,7 +82,7 @@
             tal:define="showMore view/data/show_more">
         <span class="portletBottomLeft"></span>
         <div class="formControls">
-        <span tal:condition="showMore">
+        <span tal:condition="python:showMore">
         <a tal:attributes="href collection_url">
            <span class="hiddenStructure"><span tal:replace="view/data/header" /> - </span>
            <input i18n:attributes="value more_url" type="submit" class="btn btn-default show-more" value="More&hellip;"/>
