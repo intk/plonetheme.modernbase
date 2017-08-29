@@ -49,6 +49,16 @@ class ContextToolsView(BrowserView):
                 return False
         return True
 
+    def getCollectionItems(self, item):
+        collection = item.getObject()
+
+        results = []
+        if collection is not None:
+            results = collection.queryCatalog()
+
+        return results
+
+
 class OnlineExperienceView(BrowserView):
 
     def getSlideshowItems(self):

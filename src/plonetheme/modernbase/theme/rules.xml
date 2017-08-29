@@ -7,7 +7,9 @@
 
 
     <theme href="backend.html" css:if-not-content="body.frontend"/>
-    <theme href="index_online_experience.html" css:if-content="body.template-online_experience"/>
+    <theme href="backend.html" css:if-content="body.template-ogone_payment_success"/>
+    <theme href="backend.html" css:if-content="body.template-cart"/>
+    <theme href="index_online_experience.html" css:if-content="body.template-etickets"/>
     <theme href="index_kasteel.html" css:if-content="body.site-KasteelDeHaar"/>
     <theme href="index.html" css:if-content="body.frontend"/>
 
@@ -77,6 +79,21 @@
         css:theme=".documentDescription"
         css:content-children=".documentDescription"
         method="raw" />
+
+      <replace
+        css:theme-children="#website-title h1.website-title"
+        css:content-children=".documentFirstHeading"
+        method="raw" css:if-content="body.template-cart" />
+
+      <replace
+        css:theme-children="#website-title h1.website-title"
+        css:content-children=".documentFirstHeading"
+        method="raw" css:if-content="body.template-checkout" />
+
+      <replace
+        css:theme-children="#website-title h1.website-title"
+        css:content-children=".documentFirstHeading"
+        method="raw" css:if-content="body.template-ogone_payment_success" />
       
       <drop css:content=".documentDescription"/>
       <drop css:content=".documentFirstHeading"/>

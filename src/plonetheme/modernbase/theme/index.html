@@ -33,6 +33,47 @@
 
     <div class="website-wrapper">
 
+    <div id="bdajax-overlays">
+      <div id="ajax-spinner">
+        <img src="/++resource++bdajax/loading-spokes.svg" width="64" height="64" alt="" />
+      </div>
+
+      <div class="ajax-overlay" id="ajax-form">
+        <div class="overlay_content">
+          <!--
+            need a container for further overlay DOM manipulation without loosing
+            close button.
+          -->
+        </div>
+      </div>
+
+      <div class="ajax-overlay" id="ajax-overlay">
+        <div class="overlay_content">
+          <!--
+            need a container for further overlay DOM manipulation without loosing
+            close button.
+          -->
+        </div>
+      </div>
+
+      <div class="ajax-dialog" id="ajax-dialog">
+        <div class="text">
+        </div>
+        <div class="buttons">
+          <button class="submit allowMultiSubmit">OK</button>
+          <button class="cancel allowMultiSubmit">Cancel</button>
+        </div>
+      </div>
+
+      <div class="ajax-message" id="ajax-message">
+        <div class="message">Message</div>
+        <button class="close allowMultiSubmit">OK</button>
+      </div>
+
+      <iframe id="ajaxformresponse" name="ajaxformresponse" src="about:blank" style="width:0px;height:0px;display:none">
+      </iframe>
+    </div>
+
     <div class="logo-wrapper">
         <div class="brand-logo">Start Bootstrap</div>
     </div>
@@ -59,7 +100,6 @@
         </div>
 
         <div class="container main-container">
-            
             <div class="row">
                 <div class="title-container">
                     <h1 class="brand-name">Clean Blog</h1>
@@ -68,13 +108,6 @@
                         <img src="++resource++plonetheme.modernbase/seperator.svg" class="title-separator"/>
                     </div>
                 </div>
-                <!--<div id="social-media-wrapper">
-                    <div class="social-media-title">
-                        <h5>Delen</h5>
-                    </div>
-                    <div class="social-media-content" id="social-content">
-                    </div>
-                </div>-->
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 main-content">
