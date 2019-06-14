@@ -3047,6 +3047,20 @@ body.frontend {
 
 body.template-online_experience {
 
+	overflow-y: auto !important;
+
+	.website-wrapper {
+		overflow-y: unset !important;
+	}
+
+	&.navigation-is-open {
+		overflow-y: unset !important;
+
+		.website-wrapper {
+			overflow-y: auto !important;
+		}
+	}
+
 	#inline-css {
 		display: none;
 	}
@@ -4309,8 +4323,109 @@ body.template-ogone_payment_success {
 }
 
 
+body.template-checkout #form-checkout #field-checkout-subscribe-subscribe {
+	padding-bottom: 15px !important;
+	margin-top: 0px;
+	label {
+		display: inline !important;
+		span {
+			@media(min-width: 992px) {
+				margin-left: 22px;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+body.template-checkout #tag-checkout-subscribe-heading {
+	display: none !important;
+}
+
+body.template-checkout #form-checkout #field-checkout-accept_terms_and_conditions-accept {
+	padding-bottom: 0px !important;
+}
+
+body.site-KasteelDeHaar {
+	#bdajax-overlays {
+		display: none !important;
+	}
+}
+
+.pat-plone [class*="contenttype-"]:before {
+    font-family: "Fontello";
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: inherit;
+    display: inline-block;
+    color: inherit;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-right: 6px;
+}
+
+.pat-plone .contenttype-document:before {
+    content: '\e80e';
+}
+
+body.template-orders {
+	.intro-header {
+		height: 200px !important;
+		background-color: #ffffff !important;
+	}
+
+	#slickcarousel {
+		display: none !important;
+	}
+
+	#export-tours-form {
+		display: none !important;
+	}
+
+	#website-title {
+		display: block;
+	    clear: both;
+	    height: auto;
+	    padding-top: 100px;
+	    padding-bottom: 200px;
+	    text-align: center;
+
+	    h1 {
+	    	font-size: 3.125em !important;
+    		text-transform: uppercase;
+	    }
+	}
+}
+
+div.discount_coupon_wrapper {
+	display: none !important;
+}
 
 
 
+footer {
+	.footer-bottom-logos {
+		margin-top: 10px;
+		margin-bottom: 50px;
 
+		@media(min-width: 992px) {
+			margin-top: 80px;
+		}
+
+		.footer-bottom-single-logo {
+			width: 100px;
+			margin-left: 40px;
+			img {
+				max-width: 100px;
+			}
+		}
+	}
+	.bottom-left-background {
+		display: none !important;
+	}
+
+
+}
 
